@@ -13,3 +13,15 @@ router.get('/', (req, res) => {
     })
   });
   module.exports = router
+
+  router.post('/add', (req, res) => {
+    const query = `INSERT INTO "games" ("user_id", "game_name", "img_url") 
+    VALUES ($1, $2, $3);`
+    pool.query(query,[req.body.user_id, req.body.game_name, req.body.img_url])
+    .then (
+        res.send(201)
+    )
+    .catch(err => {
+        console.log('error in post', err)
+    })
+  });
