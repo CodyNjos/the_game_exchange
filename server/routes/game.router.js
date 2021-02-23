@@ -16,11 +16,24 @@ router.get('/', (req, res) => {
   });
 
 
-//ADD GAMES ROUTER
+//ADD GAME TO COLLECTION ROUTER
   router.post('/add', (req, res) => {
     const query = `INSERT INTO "games" ("user_id", "game_name", "img_url") 
     VALUES ($1, $2, $3);`
     pool.query(query,[req.body.user_id, req.body.game_name, req.body.img_url])
+    .then (
+        res.send(201)
+    )
+    .catch(err => {
+        console.log('error in post', err)
+    })
+  });
+
+  //ADD TO WISHLIST ROUTER
+  router.post('/add/wish', (req, res) => {
+    const query = `INSERT INTO "games" ("user_id", "game_name", "img_url", wish_list) 
+    VALUES ($1, $2, $3, $4);`
+    pool.query(query,[req.body.user_id, req.body.game_name, req.body.img_url, req.body.boolean])
     .then (
         res.send(201)
     )
