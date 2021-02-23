@@ -4,6 +4,7 @@ import {
   Route,
   Redirect,
   Switch,
+  withRouter,
 } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -21,7 +22,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EditPage from '../EditPage/EditPage'
 import HomePage from '../HomePage/HomePage'
-import ProfilePage from '../ProfilePage'
+import ProfilePage from '../ProfilePage/ProfilePage'
 import WishList from '../WishList/WishList'
 
 import './App.css';
@@ -86,6 +87,23 @@ function App() {
             exact path="/home" authRedirect="/user"
           >
             <LandingPage />
+          </ProtectedRoute>
+          
+          <ProtectedRoute exact path ='/edit'>
+            <EditPage/>
+          </ProtectedRoute>
+          
+          <ProtectedRoute exact path ='/homepage'>
+            <HomePage/>
+
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path = '/profile'>
+            <ProfilePage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path = '/wishlist'>
+            <WishList/>
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
