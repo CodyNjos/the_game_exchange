@@ -19,6 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EditPage from '../EditPage/EditPage'
+import HomePage from '../HomePage/HomePage'
+import ProfilePage from '../ProfilePage'
+import WishList from '../WishList/WishList'
 
 import './App.css';
 
@@ -40,8 +44,7 @@ function App() {
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
+            exact path="/about"
           >
             <AboutPage />
           </Route>
@@ -52,16 +55,14 @@ function App() {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
+            exact path="/user"
           >
             <UserPage />
           </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
+            exact path="/info"
           >
             <InfoPage />
           </ProtectedRoute>
@@ -69,35 +70,20 @@ function App() {
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
-          <ProtectedRoute
-            // with authRedirect:
-            // - if logged in, redirects to "/user"
-            // - else shows LoginPage at /login
-            exact
-            path="/login"
-            authRedirect="/user"
+          <ProtectedRoute //with authRedirect: - if logged in, redirects to "/user" - else shows LoginPage at /login
+            exact path="/login" authRedirect="/user"
           >
             <LoginPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // with authRedirect:
-            // - if logged in, redirects to "/user"
-            // - else shows RegisterPage at "/registration"
-            exact
-            path="/registration"
-            authRedirect="/user"
+          <ProtectedRoute // with authRedirect: - if logged in, redirects to "/user" - else shows RegisterPage at "/registration"
+            exact path="/registration" authRedirect="/user"
           >
             <RegisterPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // with authRedirect:
-            // - if logged in, redirects to "/user"
-            // - else shows LandingPage at "/home"
-            exact
-            path="/home"
-            authRedirect="/user"
+          <ProtectedRoute // with authRedirect:- if logged in, redirects to "/user"- else shows LandingPage at "/home"
+            exact path="/home" authRedirect="/user"
           >
             <LandingPage />
           </ProtectedRoute>
