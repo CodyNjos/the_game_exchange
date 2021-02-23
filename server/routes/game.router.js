@@ -18,11 +18,13 @@ router.get('/', (req, res) => {
 
 //ADD GAME TO COLLECTION ROUTER
   router.post('/add', (req, res) => {
+    console.log(req.body)
     const query = `INSERT INTO "games" ("user_id", "game_name", "img_url") 
     VALUES ($1, $2, $3);`
     pool.query(query,[req.body.user_id, req.body.game_name, req.body.img_url])
     .then (
-        res.send(201)
+        console.log(req.body.game_name, "added to user", req.body.user_id+"'s collection"),
+        res.sendStatus(201)
     )
     .catch(err => {
         console.log('error in post', err)
