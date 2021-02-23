@@ -11,7 +11,6 @@ function ProfileAddCollection() {
             game_name: "",
             img_url: ""
             })
-        console.log(form)
     }
     const [newGame, setNewGame] = useState({
         user_id: store.user.id,
@@ -34,7 +33,7 @@ function ProfileAddCollection() {
     return (form ?
         <>
 
-            <button onClick={toggleForm}>Toggle</button>
+            <button onClick={toggleForm}>Add To Collection</button>
         </>
         :
         <>

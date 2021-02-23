@@ -23,8 +23,9 @@ function Nav() {
         <h2 className="nav-title">The Game Exchange</h2>
       </Link>
       <div>
-        <Link className="navLink" to={loginLinkData.path}>
-          {loginLinkData.text}
+        <Link className="navLink" to = '/homepage'> 
+        {/* to={loginLinkData.path}> {loginLinkData.text} */}
+        Home
         </Link>
         <Link className="navLink" to="/profile">
               Profile 
@@ -45,7 +46,7 @@ function Nav() {
         <Link className="navLink" to="/about">
           About
         </Link>
-        <LogOutButton className="navLink" />
+        
       </div>
     </div>
   );

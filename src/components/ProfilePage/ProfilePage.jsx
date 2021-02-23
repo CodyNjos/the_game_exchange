@@ -5,6 +5,7 @@ function ProfilePage() {
         <>
         <p>Profile Page</p>
         <ProfileAddCollection/>
+        <br/>
         <ProfileAddWishlist/>
         </>
     )

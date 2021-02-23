@@ -12,7 +12,6 @@ function ProfileAddCollection() {
             img_url: "",
             boolean: true
             })
-        console.log(form)
     }
     const [newGame, setNewGame] = useState({
         user_id: store.user.id,
