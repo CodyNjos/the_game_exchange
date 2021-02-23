@@ -33,11 +33,12 @@ router.get('/', (req, res) => {
 
   //ADD TO WISHLIST ROUTER
   router.post('/add/wish', (req, res) => {
+    console.log(req.body)
     const query = `INSERT INTO "games" ("user_id", "game_name", "img_url", wish_list) 
     VALUES ($1, $2, $3, $4);`
     pool.query(query,[req.body.user_id, req.body.game_name, req.body.img_url, req.body.boolean])
     .then (
-        res.send(201)
+        res.sendStatus(201)
     )
     .catch(err => {
         console.log('error in post', err)

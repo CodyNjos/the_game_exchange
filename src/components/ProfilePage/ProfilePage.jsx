@@ -1,9 +1,11 @@
 import ProfileAddCollection from '../ProfileAddCollection/ProfileAddCollection'
+import ProfileAddWishlist from '../ProfileAddWishlist/ProfileAddWishlist'
 function ProfilePage() {
     return(
         <>
-        <p>Profile Game Page</p>
+        <p>Profile Page</p>
         <ProfileAddCollection/>
+        <ProfileAddWishlist/>
         </>
     )
 }

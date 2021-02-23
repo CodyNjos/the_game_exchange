@@ -20,11 +20,14 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">The Game Exchange</h2>
       </Link>
       <div>
         <Link className="navLink" to={loginLinkData.path}>
           {loginLinkData.text}
+        </Link>
+        <Link className="navLink" to="/profile">
+              Profile 
         </Link>
 
         {user.id && (
@@ -32,13 +35,17 @@ function Nav() {
             <Link className="navLink" to="/info">
               Info Page
             </Link>
-            <LogOutButton className="navLink" />
+         
+            
           </>
         )}
-
+        <Link className="navLink" to="/wishlist">
+          Wish List
+        </Link>
         <Link className="navLink" to="/about">
           About
         </Link>
+        <LogOutButton className="navLink" />
       </div>
     </div>
   );
