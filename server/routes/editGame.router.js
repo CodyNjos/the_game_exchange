@@ -7,7 +7,7 @@ router.put('/tradeable/:id', (req, res) => {
     // req.body should contain a category_id to add to this favorite image
     const id = req.params.id;
     const boolean = req.body.boolean;
-    console.log(`Updating the game with id:${id} to set its tradeable value to:${boolean}`);
+    console.log(`Updating the game with id:${id} to set its tradable value to:${boolean}`);
     console.log(id, boolean)
     const queryText = `UPDATE "games" SET "tradeable" = $1
                       WHERE "id" = $2;`;

@@ -6,7 +6,7 @@ function* getAllGames() {
     try{
     console.log("in get all games")
     const games = yield axios.get('/api/games')
-    console.log(games.data)
+    yield put ({type: 'SET_GAMES', payload: games.data})
     }catch{
         console.log('error in get ')
     }
