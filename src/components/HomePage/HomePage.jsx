@@ -14,9 +14,10 @@ function HomePage() {
         <p>Home Page</p>
         {tradeable.map(game => {
             return(
-             <div key = {game.id}> 
+             <div className="gameCard" key = {game.id}> 
              {game.game_name} <br/>
              <img src = {game.img_url}/>
+             <p>Offered By : {game.user_id}</p>
              </div>
             )
         })}

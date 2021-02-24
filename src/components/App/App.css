@@ -110,3 +110,9 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+.gameCard{
+  border: 1px solid black;
+  width: 300px;
+  text-align: center;
+  margin: 10px;
+}

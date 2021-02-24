@@ -13,9 +13,10 @@ function WishList() {
         <p>Wish List Page</p>
         {wishlist.map(games => {
             return(
-            <div key = {games.id}>
+            <div className="gameCard" key = {games.id}>
                 <p>{games.game_name}</p> <br/>
                 <img src={games.img_url}/>
+                <p>{games.user_id} is looking for this</p>
             </div>
         )})}
         </>
