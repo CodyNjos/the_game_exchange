@@ -26,6 +26,7 @@ function ProfileAddCollection() {
             return;
         }
         dispatch({type:'ADD_WISHLIST', payload:newGame})
+        dispatch({type:'GET_GAMES'})
         setNewGame({
         user_id: store.user.id,
         game_name: "",

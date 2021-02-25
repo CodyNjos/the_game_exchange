@@ -24,7 +24,7 @@ import EditPage from '../EditPage/EditPage'
 import HomePage from '../HomePage/HomePage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import WishList from '../WishList/WishList'
-
+import ProfileOther from '../ProfileOther/ProfileOther'
 import './App.css';
 
 function App() {
@@ -84,8 +84,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute // with authRedirect:- if logged in, redirects to "/user"- else shows LandingPage at "/home"
-            exact path="/home" authRedirect="/user"
-          >
+            exact path="/home" authRedirect="/user">
             <LandingPage />
           </ProtectedRoute>
           
@@ -95,11 +94,14 @@ function App() {
           
           <ProtectedRoute exact path ='/homepage'>
             <HomePage/>
-
           </ProtectedRoute>
 
-          <ProtectedRoute path = '/profile'>
+          <ProtectedRoute exact path = '/profile'>
             <ProfilePage/>
+          </ProtectedRoute>
+          
+          <ProtectedRoute path = '/profiles/:id'>
+            <ProfileOther/>
           </ProtectedRoute>
 
           <ProtectedRoute exact path = '/wishlist'>
