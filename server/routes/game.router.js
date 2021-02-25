@@ -2,6 +2,19 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//GET ALL FROM USER
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+    const query = `SELECT * FROM games WHERE user_id = ${id}`;
+    pool.query(query)
+    .then( result => {
+        res.send(result.rows)
+    }).catch( err => {
+        console.log('Error in get all games', err)
+        res.sendStatus(500)
+    })
+})
+
 
 //GET ALL GAMES ROUTER
 router.get('/', (req, res) => {

@@ -98,7 +98,7 @@ function App() {
 
           </ProtectedRoute>
 
-          <ProtectedRoute exact path = '/profile'>
+          <ProtectedRoute path = '/profile'>
             <ProfilePage/>
           </ProtectedRoute>
 

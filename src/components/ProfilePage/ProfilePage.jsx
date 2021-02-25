@@ -41,7 +41,8 @@ function ProfilePage() {
             return(
             <div className="gameCard" key = {game.id}>
                 <p>{game.game_name}</p><br/>
-                <img src = {game.img_url}/>
+                <img src = {game.img_url}/><br/>
+                <button>Edit</button>
             </div>
         )})}
         
