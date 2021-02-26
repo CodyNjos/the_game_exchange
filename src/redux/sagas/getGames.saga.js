@@ -22,10 +22,21 @@ function* getUserGames(action) {
     }
 }
 
+function* editGame(action) {
+    try{
+        const games = yield axios.get(`/api/games/edit/${action.payload}`)
+        yield put ({type: 'SET_EDIT_GAMES', payload: games.data})
+        }catch{
+            console.log('error in get user games')
+        }
+    
+}
+
 // listener for actions in this saga
 function* getGamesSaga() {
     yield takeLatest("GET_GAMES", getAllGames);
     yield takeLatest("GET_USER_GAMES", getUserGames)
+    yield takeLatest("EDIT_GAME", editGame)
     
   }
 

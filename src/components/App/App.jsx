@@ -88,7 +88,7 @@ function App() {
             <LandingPage />
           </ProtectedRoute>
           
-          <ProtectedRoute exact path ='/edit'>
+          <ProtectedRoute exact path ='/edit/:id'>
             <EditPage/>
           </ProtectedRoute>
           

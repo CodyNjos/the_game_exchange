@@ -28,6 +28,18 @@ router.get('/', (req, res) => {
         })
 });
 
+//GET ONE GAME
+router.get('/edit/:id', (req,res) => {
+    const id = req.params.id
+    const query = `SELECT * FROM games WHERE id = ${id}`
+    pool.query(query)
+        .then(result => {
+            res.send(result.rows)
+        }).catch(err => {
+            console.log('Error in get all games', err)
+            res.sendStatus(500)
+        })
+})
 
 //ADD GAME TO COLLECTION ROUTER
 router.post('/add', (req, res) => {

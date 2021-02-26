@@ -2,7 +2,9 @@ import ProfileAddCollection from '../ProfileAddCollection/ProfileAddCollection'
 import ProfileAddWishlist from '../ProfileAddWishlist/ProfileAddWishlist'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom";
 function ProfilePage() {
+    const history = useHistory();
     const dispatch = useDispatch();
     const store = useSelector(store => store);
     useEffect(() => {
@@ -27,7 +29,7 @@ function ProfilePage() {
                     <div className="gameCard" key={game.id}>
                         <p>{game.game_name}</p><br />
                         <img src={game.img_url} /> <br/>
-                        <button>Edit</button>
+                        <button onClick={()=>history.push(`/edit/${game.id}`)}>Edit</button>
                     </div>
                 )
             })}
@@ -54,7 +56,7 @@ function ProfilePage() {
                         <p>{game.game_name}</p><br />
                         <img src={game.img_url} /><br />
                         <button onClick ={() => deleteGame(game.id)}>Remove From Library</button>
-                        <button>Edit</button>
+                        <button onClick = {() => history.push(`/edit/${game.id}`)}>Edit</button>
                     </div>
                 )
             })}
