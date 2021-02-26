@@ -5,6 +5,7 @@ const router = express.Router();
 //EDIT GAME TRADEABLE ROUTER
 router.put('/tradeable/:id', (req, res) => {
     // req.body should contain a category_id to add to this favorite image
+    console.log(req.body)
     const id = req.params.id;
     const boolean = req.body.boolean;
     console.log(`Updating the game with id:${id} to set its tradeable value to:${boolean}`);

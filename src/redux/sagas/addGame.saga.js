@@ -16,11 +16,16 @@ function* deleteGame(action) {
     console.log('deleteing game with id', action.payload)
     yield axios.delete(`/api/games/delete/${action.payload}`)
 }
+function* editTradeable(action) {
+    console.log('editing tradeable', action.payload)
+    yield axios.put(`/api/edit/tradeable/${action.payload.id}`, action.payload)
+}
 // listener for actions in this saga
 function* addGameSaga() {
     yield takeLatest('ADD_GAME', addGame);
     yield takeLatest('ADD_WISHLIST', addWishlist);
     yield takeLatest('DELETE_GAME', deleteGame);
+    yield takeLatest('EDIT_TRADEABLE', editTradeable)
   }
 
   export default addGameSaga;
