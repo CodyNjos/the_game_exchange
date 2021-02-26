@@ -5,9 +5,12 @@ const router = express.Router();
 //GET ALL FROM USER
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    const query = `SELECT * FROM games WHERE user_id = ${id}`;
+    const query = `SELECT * FROM  "user"
+    JOIN "games" ON "user"."id"  = "games"."user_id"
+    WHERE "user_id" = ${id}`;
     pool.query(query)
         .then(result => {
+            console.log(result.rows)
             res.send(result.rows)
         }).catch(err => {
             console.log('Error in get all games', err)
@@ -18,7 +21,8 @@ router.get('/:id', (req, res) => {
 
 //GET ALL GAMES ROUTER
 router.get('/', (req, res) => {
-    const query = `SELECT * FROM games`;
+    const query = `SELECT * FROM  "user"
+    JOIN "games" ON "user"."id"  = "games"."user_id"`;
     pool.query(query)
         .then(result => {
             res.send(result.rows)

@@ -24,11 +24,13 @@ function ProfileAddCollection() {
             return;
         }
         dispatch({type:'ADD_GAME', payload:newGame})
+        dispatch({ type: 'GET_GAMES' })
         setNewGame({
         user_id: store.user.id,
         game_name: "",
         img_url: ""
         })
+      
     }
     return (form ?
         <>

@@ -7,6 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  text-align: center;
 }
 
 img {
@@ -115,6 +116,12 @@ input {
   width: 300px;
   text-align: center;
   margin: 10px;
-  
 
+
+}
+.cardWrap{
+  display : flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

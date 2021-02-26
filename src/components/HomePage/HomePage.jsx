@@ -19,11 +19,13 @@ function HomePage() {
         <h2>Home Page</h2>
         {tradeable.map(game => {
             return(
-             <div className="gameCard" key = {game.id}> 
+             <div key = {game.id} className = 'cardWrap'>  
+             <div className="gameCard" > 
              {game.game_name} <br/>
              <img src = {game.img_url}/>
-             <p>Offered By : {game.user_id}</p>
+             <p>Offered By : {game.username}</p>
              <button onClick={() => viewProfile(game.user_id)}>View Profile</button>
+             </div>
              </div>
             )
         })}

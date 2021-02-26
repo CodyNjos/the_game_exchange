@@ -26,10 +26,12 @@ function ProfilePage() {
             <h2>Tradeable Games</h2>
             {usersTradeable.map(game => {
                 return (
-                    <div className="gameCard" key={game.id}>
+                    <div  key={game.id} className = 'cardWrap'>
+                    <div className="gameCard">
                         <p>{game.game_name}</p><br />
                         <img src={game.img_url} /> <br/>
                         <button onClick={()=>history.push(`/edit/${game.id}`)}>Edit</button>
+                    </div>
                     </div>
                 )
             })}
@@ -38,11 +40,12 @@ function ProfilePage() {
             <ProfileAddWishlist />
             {usersWish.map(wish => {
                 return (
-
-                    <div className="gameCard" key={wish.id}>
+                    <div key={wish.id} className = 'cardWrap'>
+                    <div className="gameCard" >
                         <p>{wish.game_name}</p><br />
                         <img src={wish.img_url} /><br/>
                         <button onClick ={() => deleteGame(wish.id)}>Remove From Wishlist</button>
+                    </div>
                     </div>
                 
                 )
@@ -52,11 +55,13 @@ function ProfilePage() {
             <ProfileAddCollection />
             {usersCollection.map(game => {
                 return (
-                    <div className="gameCard" key={game.id}>
+                    <div key={game.id} className = 'cardWrap'>
+                    <div className="gameCard" >
                         <p>{game.game_name}</p><br />
                         <img src={game.img_url} /><br />
                         <button onClick ={() => deleteGame(game.id)}>Remove From Library</button>
                         <button onClick = {() => history.push(`/edit/${game.id}`)}>Edit</button>
+                    </div>
                     </div>
                 )
             })}
