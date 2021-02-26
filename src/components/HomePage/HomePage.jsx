@@ -12,6 +12,11 @@ function HomePage() {
     const tradeable = store.games.filter(games => games.tradeable === true && games.wish_list === false)
     const viewProfile = (user) => {
         console.log(user)
+        if (user === store.user.id){
+            console.log('current user')
+            history.push('profile')
+            return;
+        }
         history.push(`/profiles/${user}`)
     }
     return(

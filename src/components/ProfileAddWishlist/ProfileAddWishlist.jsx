@@ -46,7 +46,7 @@ function ProfileAddCollection() {
                 <input value={newGame.img_url} onChange={(e) => setNewGame ({ ...newGame, img_url: e.target.value})} type="url" placeholder='Image Url' />
                 <button type='submit'>Submit</button>
             </form>
-            <button onClick={toggleForm}>Go Back</button>
+            <button onClick={toggleForm}>Cancel</button>
             
         </>
     )

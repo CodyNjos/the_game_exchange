@@ -11,6 +11,11 @@ function WishList() {
     const wishlist = store.games.filter(games => games.wish_list === true)
     const viewProfile = (user) => {
         console.log(user)
+        if (user === store.user.id){
+            console.log('current user')
+            history.push('profile')
+            return;
+        }
         history.push(`/profiles/${user}`)
     }
     return (

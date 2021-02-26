@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest, } from 'redux-saga/effects';
+import { put, takeEvery, } from 'redux-saga/effects';
 
 //makes get request to get all games from the DB
 function* getAllGames() {
@@ -34,9 +34,9 @@ function* editGame(action) {
 
 // listener for actions in this saga
 function* getGamesSaga() {
-    yield takeLatest("GET_GAMES", getAllGames);
-    yield takeLatest("GET_USER_GAMES", getUserGames)
-    yield takeLatest("EDIT_GAME", editGame)
+    yield takeEvery("GET_GAMES", getAllGames);
+    yield takeEvery("GET_USER_GAMES", getUserGames)
+    yield takeEvery("EDIT_GAME", editGame)
     
   }
 

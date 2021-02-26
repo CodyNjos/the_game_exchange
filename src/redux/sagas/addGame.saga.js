@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest, } from 'redux-saga/effects';
+import { put, takeEvery, } from 'redux-saga/effects';
 
 //makes post request to add game to library
 function* addGame(action) {
@@ -22,10 +22,10 @@ function* editTradeable(action) {
 }
 // listener for actions in this saga
 function* addGameSaga() {
-    yield takeLatest('ADD_GAME', addGame);
-    yield takeLatest('ADD_WISHLIST', addWishlist);
-    yield takeLatest('DELETE_GAME', deleteGame);
-    yield takeLatest('EDIT_TRADEABLE', editTradeable)
+    yield takeEvery('ADD_GAME', addGame);
+    yield takeEvery('ADD_WISHLIST', addWishlist);
+    yield takeEvery('DELETE_GAME', deleteGame);
+    yield takeEvery('EDIT_TRADEABLE', editTradeable)
   }
 
   export default addGameSaga;
