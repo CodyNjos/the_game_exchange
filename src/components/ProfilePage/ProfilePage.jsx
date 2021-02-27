@@ -9,7 +9,7 @@ function ProfilePage() {
     const store = useSelector(store => store);
     useEffect(() => {
         dispatch({ type: 'GET_GAMES' });
-    }, []);
+    }, [dispatch]);
 
     const usersGames = store.games.filter(games => games.user_id === store.user.id)
     const usersCollection = usersGames.filter(games => games.wish_list === false)
