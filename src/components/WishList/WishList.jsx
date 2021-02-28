@@ -21,18 +21,20 @@ function WishList() {
     return (
         <>
             <p>Wish List Page</p>
+              <div  className='cardWrap'>
             {wishlist.map(games => {
                 return (
-                    <div key={games.id} className='cardWrap'>
-                        <div className="gameCard" >
+                  
+                        <div key={games.id} className="gameCard" >
                             <p>{games.game_name}</p> <br />
                             <img src={games.img_url} />
                             <p>{games.username} is looking for this</p>
                             <button onClick = {() => viewProfile(games.user_id)}>View Profile</button>
                         </div>
-                    </div>
+                    
                 )
             })}
+            </div>
         </>
     )
 }

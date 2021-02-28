@@ -21,8 +21,17 @@ router.get('/:id', (req, res) => {
 
 //GET ALL GAMES ROUTER
 router.get('/', (req, res) => {
-    const query = `SELECT * FROM  "user"
+    if (req.query.search.length === 0){
+        console.log('no search')
+    query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"`;
+    }
+    else{
+        console.log('yes search')
+        query = `SELECT * FROM  "user"
+    JOIN "games" ON "user"."id"  = "games"."user_id"
+    WHERE "game_name" ILIKE '${req.query.search}%'`;
+    }
     pool.query(query)
         .then(result => {
             res.send(result.rows)

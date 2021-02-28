@@ -8,64 +8,72 @@ function ProfilePage() {
     const dispatch = useDispatch();
     const store = useSelector(store => store);
     useEffect(() => {
-        dispatch({ type: 'GET_GAMES' });
+        dispatch({ type: 'GET_GAMES', payload:"" });
     }, [dispatch]);
-
+    
+    
     const usersGames = store.games.filter(games => games.user_id === store.user.id)
+    
     const usersCollection = usersGames.filter(games => games.wish_list === false)
     const usersTradeable = usersGames.filter(games => games.tradeable === true)
     const usersWish = usersGames.filter(games => games.wish_list === true)
+    
+    
     const deleteGame = (id) => {
         console.log(id)
-        dispatch ({type: 'DELETE_GAME', payload: id})
-        dispatch ({type: 'GET_GAMES'})
+        dispatch({ type: 'DELETE_GAME', payload: id })
+        dispatch({ type: 'GET_GAMES' })
     }
     return (
         <>
             <p>Profile Page</p>
             <h2>Tradeable Games</h2>
-            {usersTradeable.map(game => {
-                return (
-                    <div  key={game.id} className = 'cardWrap'>
-                    <div className="gameCard">
-                        <p>{game.game_name}</p><br />
-                        <img src={game.img_url} /> <br/>
-                        <button onClick={()=>history.push(`/edit/${game.id}`)}>Edit</button>
-                    </div>
-                    </div>
-                )
-            })}
+            <div className='cardWrap'>
+                {usersTradeable.map(game => {
+                    return (
+
+                        <div key={game.id} className="gameCard">
+                            <p>{game.game_name}</p><br />
+                            <img src={game.img_url} /> <br />
+                            <button onClick={() => history.push(`/edit/${game.id}`)}>Edit</button>
+                        </div>
+
+                    )
+                })}
+            </div>
             <br />
             <h2>Wish List</h2>
+
             <ProfileAddWishlist />
-            {usersWish.map(wish => {
-                return (
-                    <div key={wish.id} className = 'cardWrap'>
-                    <div className="gameCard" >
-                        <p>{wish.game_name}</p><br />
-                        <img src={wish.img_url} /><br/>
-                        <button onClick ={() => deleteGame(wish.id)}>Remove From Wishlist</button>
-                    </div>
-                    </div>
-                
-                )
-            })}
+            <div className='cardWrap'>
+                {usersWish.map(wish => {
+                    return (
+
+                        <div key={wish.id} className="gameCard" >
+                            <p>{wish.game_name}</p><br />
+                            <img src={wish.img_url} /><br />
+                            <button onClick={() => deleteGame(wish.id)}>Remove From Wishlist</button>
+                        </div>
+
+
+                    )
+                })}
+            </div>
             <br />
             <h2>Collecton</h2>
             <ProfileAddCollection />
-            {usersCollection.map(game => {
-                return (
-                    <div key={game.id} className = 'cardWrap'>
-                    <div className="gameCard" >
-                        <p>{game.game_name}</p><br />
-                        <img src={game.img_url} /><br />
-                        <button onClick ={() => deleteGame(game.id)}>Remove From Library</button>
-                        <button onClick = {() => history.push(`/edit/${game.id}`)}>Edit</button>
-                    </div>
-                    </div>
-                )
-            })}
-
+            <div className='cardWrap'>
+                {usersCollection.map(game => {
+                    return (
+                        <div key={game.id} className="gameCard" >
+                            <p>{game.game_name}</p><br />
+                            <img src={game.img_url} /><br />
+                            <button onClick={() => deleteGame(game.id)}>Remove From Library</button>
+                            <button onClick={() => history.push(`/edit/${game.id}`)}>Edit</button>
+                        </div>
+                    )
+                })}
+            </div>
         </>
     )
 }

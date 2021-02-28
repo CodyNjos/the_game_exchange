@@ -20,35 +20,36 @@ function ProfileOther() {
                 <></>
                 :
                 <>
-                <h1>{store.userGames[0].username}'s Profile</h1>
-                <h3>Contact At</h3>
-                <h4>{store.userGames[0].email}</h4>
+                    <h1>{store.userGames[0].username}'s Profile</h1>
+                    <h3>Contact At</h3>
+                    <h4>{store.userGames[0].email}</h4>
                 </>
             }
             <h2>Tradeable Games</h2>
-            {usersTradeable.map(game => {
-                return (
-                    <div key={game.id} className="cardWrap">
-                        <div className="gameCard" >
+            <div className="cardWrap">
+                {usersTradeable.map(game => {
+                    return (
+                        <div key={game.id} className="gameCard" >
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} />
                         </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
             <br />
             <h2>Wish List</h2>
-            {usersWish.map(wish => {
-                return (
-                    <div key={wish.id}className="cardWrap">
-                        <div className="gameCard" >
+            <div className="cardWrap">
+                {usersWish.map(wish => {
+                    return (
+
+                        <div key={wish.id} className="gameCard" >
                             <p>{wish.game_name}</p><br />
                             <img src={wish.img_url} />
                         </div>
-                    </div>
-                )
-            })}
 
+                    )
+                })}
+            </div>
         </>
     )
 }
