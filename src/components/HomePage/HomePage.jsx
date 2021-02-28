@@ -43,7 +43,7 @@ function HomePage() {
             </>
             :
             <>
-            <h2>No Games Found Matching Search Results</h2>
+            <h2>No Tradeable Games Found Matching Search Results</h2>
             </>}
         </>
     )
