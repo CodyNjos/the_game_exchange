@@ -46,6 +46,7 @@ function Nav() {
         <Link className="navLink" to="/about">
           About
         </Link>
+        <LogOutButton className="navLink" />
         
       </div>
     </div>
