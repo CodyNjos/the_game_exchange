@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-
+import {TextField, Button} from '@material-ui/core'
 import './HomePage.css'
 function HomePage() {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function HomePage() {
     return (
         <>  
             <h2>Home Page</h2>
-            <input placeholder = 'Search Games' value={search} onChange={(e) => setSearch( e.target.value)}/>
+            <TextField label = 'Search Games' value={search} onChange={(e) => setSearch( e.target.value)}/>
             {tradeable.length > 0 ? 
             <>
             <div className='cardWrap'>
@@ -34,7 +34,7 @@ function HomePage() {
                             {game.game_name} <br />
                             <img src={game.img_url} />
                             <p>Offered By: {game.username}</p>
-                            <button onClick={() => viewProfile(game.user_id)}>View Profile</button>
+                            <Button variant="contained" color="primary" onClick={() => viewProfile(game.user_id)}>View Profile</Button>
                         </div>
 
                     )

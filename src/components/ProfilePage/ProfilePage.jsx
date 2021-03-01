@@ -3,6 +3,7 @@ import ProfileAddWishlist from '../ProfileAddWishlist/ProfileAddWishlist'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
+import {Button} from "@material-ui/core"
 function ProfilePage() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function ProfilePage() {
                         <div key={game.id} className="gameCard">
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} /> <br />
-                            <button onClick={() => history.push(`/edit/${game.id}`)}>Edit</button>
+                            <Button variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
                         </div>
 
                     )
@@ -52,7 +53,7 @@ function ProfilePage() {
                         <div key={wish.id} className="gameCard" >
                             <p>{wish.game_name}</p><br />
                             <img src={wish.img_url} /><br />
-                            <button onClick={() => deleteGame(wish.id)}>Remove From Wishlist</button>
+                            <Button variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
                         </div>
 
 
@@ -68,8 +69,8 @@ function ProfilePage() {
                         <div key={game.id} className="gameCard" >
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} /><br />
-                            <button onClick={() => deleteGame(game.id)}>Remove From Library</button>
-                            <button onClick={() => history.push(`/edit/${game.id}`)}>Edit</button>
+                            <Button variant="contained" color="secondary" onClick={() => deleteGame(game.id)}>Remove From Library</Button>
+                            <Button variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
                         </div>
                     )
                 })}

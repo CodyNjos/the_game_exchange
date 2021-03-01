@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import {Button, TextField} from '@material-ui/core'
 function ProfileAddCollection() {
     const store = useSelector(store => store)
     const dispatch = useDispatch();
@@ -35,16 +36,16 @@ function ProfileAddCollection() {
     return (form ?
         <>
 
-            <button onClick={toggleForm}>Add To Collection</button>
+            <Button variant="contained" color="primary" onClick={toggleForm}>Add To Collection</Button>
         </>
         :
         <>
             <form onSubmit={addGame}>
-                <input value={newGame.game_name} onChange={(e) => setNewGame ({ ...newGame, game_name: e.target.value})} placeholder='Title' />
-                <input value={newGame.img_url} onChange={(e) => setNewGame ({ ...newGame, img_url: e.target.value})} type="url" placeholder='Image Url' />
-                <button type='submit'>Submit</button>
+                <TextField value={newGame.game_name} onChange={(e) => setNewGame ({ ...newGame, game_name: e.target.value})} placeholder='Title' />
+                <TextField value={newGame.img_url} onChange={(e) => setNewGame ({ ...newGame, img_url: e.target.value})} type="url" placeholder='Image Url' />
+                <Button variant="contained" color="primary"type='submit'>Submit</Button>
             </form>
-            <button onClick={toggleForm}>Cancel</button>
+            <Button variant="contained" color="default" onClick={toggleForm}>Cancel</Button>
             
         </>
     )

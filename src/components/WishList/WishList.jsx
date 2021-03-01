@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import {TextField} from '@material-ui/core'
+import { TextField, Button } from '@material-ui/core'
 function WishList() {
     const dispatch = useDispatch();
     const history = useHistory()
@@ -23,7 +23,7 @@ function WishList() {
     return (
         <>
             <p>Wish List Page</p>
-            <TextField placeholder = 'Search Games' value={search} onChange={(e) => setSearch( e.target.value)}/>
+            <TextField label= 'Search Wishlist' value={search} onChange={(e) => setSearch( e.target.value)}/>
             {wishlist.length > 0 ?
                 <>
                     <div className='cardWrap'>
@@ -34,7 +34,7 @@ function WishList() {
                                     <p>{games.game_name}</p> <br />
                                     <img src={games.img_url} />
                                     <p>{games.username} is looking for this</p>
-                                    <button onClick={() => viewProfile(games.user_id)}>View Profile</button>
+                                    <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View Profile</Button>
                                 </div>
 
                             )
