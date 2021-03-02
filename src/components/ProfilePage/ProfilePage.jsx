@@ -23,7 +23,6 @@ function ProfilePage() {
     const deleteGame = (id) => {
         console.log(id)
         dispatch({ type: 'DELETE_GAME', payload: id })
-        dispatch({ type: 'GET_GAMES' })
     }
     return (
         <>
@@ -69,8 +68,7 @@ function ProfilePage() {
                         <div key={game.id} className="gameCard" >
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} /><br />
-                            <Button variant="contained" color="secondary" onClick={() => deleteGame(game.id)}>Remove From Library</Button>
-                            <Button variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
+                            <Button variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
                         </div>
                     )
                 })}

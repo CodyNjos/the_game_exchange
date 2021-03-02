@@ -23,7 +23,7 @@ function HomePage() {
     }
     return (
         <>  
-            <h2>Home Page</h2>
+            <h2>Available Games</h2>
             <TextField label = 'Search Games' value={search} onChange={(e) => setSearch( e.target.value)}/>
             {tradeable.length > 0 ? 
             <>
@@ -36,7 +36,6 @@ function HomePage() {
                             <p>Offered By: {game.username}</p>
                             <Button variant="contained" color="primary" onClick={() => viewProfile(game.user_id)}>View Profile</Button>
                         </div>
-
                     )
                 })}
             </div>

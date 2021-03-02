@@ -10,15 +10,18 @@ function* addGame(action) {
 function* addWishlist(action) {
     console.log('adding to wishlist', action.payload)
     yield axios.post('/api/games/add/wish', action.payload)
+    yield put({ type: 'GET_GAMES', payload: '' })
 }
 //makes a delete request to remove game
 function* deleteGame(action) {
     console.log('deleteing game with id', action.payload)
     yield axios.delete(`/api/games/delete/${action.payload}`)
+    yield put({ type: 'GET_GAMES', payload: '' })
 }
 function* editTradeable(action) {
     console.log('editing tradeable', action.payload)
     yield axios.put(`/api/edit/tradeable/${action.payload.id}`, action.payload)
+    yield put({type: 'EDIT_GAME', payload: action.payload.id})
 }
 // listener for actions in this saga
 function* addGameSaga() {
