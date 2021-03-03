@@ -3,7 +3,8 @@ import ProfileAddWishlist from '../ProfileAddWishlist/ProfileAddWishlist'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import {Button} from "@material-ui/core"
+import {TextField, Button,Paper, Card, CardContent} from '@material-ui/core'
+import {useStyles} from '../GameCardStyle/GameCardStyle'
 function ProfilePage() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -14,12 +15,12 @@ function ProfilePage() {
     
     
     const usersGames = store.games.filter(games => games.user_id === store.user.id)
-    
+   
     const usersCollection = usersGames.filter(games => games.wish_list === false)
     const usersTradeable = usersGames.filter(games => games.tradeable === true)
     const usersWish = usersGames.filter(games => games.wish_list === true)
     
-    
+    const classes=useStyles()
     const deleteGame = (id) => {
         console.log(id)
         dispatch({ type: 'DELETE_GAME', payload: id })
@@ -33,9 +34,15 @@ function ProfilePage() {
                     return (
 
                         <div key={game.id} className="gameCard">
+                             <Paper className={classes.paper} elevation={20}>
+                                <Card className={classes.root}>
+                                    <CardContent>
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} /> <br />
-                            <Button variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
+                            <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
+                            </CardContent>
+                            </Card>
+                            </Paper>
                         </div>
 
                     )
@@ -50,9 +57,15 @@ function ProfilePage() {
                     return (
 
                         <div key={wish.id} className="gameCard" >
+                            <Paper className={classes.paper} elevation={20}>
+                                <Card className={classes.root}>
+                                    <CardContent>
                             <p>{wish.game_name}</p><br />
                             <img src={wish.img_url} /><br />
-                            <Button variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
+                            <Button className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
+                            </CardContent>
+                            </Card>
+                            </Paper>
                         </div>
 
 
@@ -66,9 +79,15 @@ function ProfilePage() {
                 {usersCollection.map(game => {
                     return (
                         <div key={game.id} className="gameCard" >
+                            <Paper className={classes.paper} elevation={20}>
+                                <Card className={classes.root}>
+                                    <CardContent>
                             <p>{game.game_name}</p><br />
                             <img src={game.img_url} /><br />
-                            <Button variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
+                            <Button className={classes.button} variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
+                            </CardContent>
+                            </Card>
+                            </Paper>
                         </div>
                     )
                 })}

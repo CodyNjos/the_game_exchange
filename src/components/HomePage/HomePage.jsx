@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import {TextField, Button} from '@material-ui/core'
+import { TextField, Button,Paper, Card, CardContent } from '@material-ui/core'
+import { useStyles } from '../GameCardStyle/GameCardStyle'
 import './HomePage.css'
 function HomePage() {
     const dispatch = useDispatch();
@@ -20,7 +21,9 @@ function HomePage() {
             return;
         }
         history.push(`/profiles/${user}`)
+        
     }
+   const classes= useStyles()
     return (
         <>  
             <h2>Available Games</h2>
@@ -31,10 +34,16 @@ function HomePage() {
                 {tradeable.map(game => {
                     return (
                         <div key={game.id} className="gameCard" >
-                            {game.game_name} <br />
+                            <Paper className={classes.paper} elevation={10}>
+                                <Card className={classes.root}>
+                                    <CardContent>
+                           <p> {game.game_name} </p>
                             <img src={game.img_url} />
                             <p>Offered By: {game.username}</p>
                             <Button variant="contained" color="primary" onClick={() => viewProfile(game.user_id)}>View Profile</Button>
+                             </CardContent>
+                             </Card>
+                            </Paper>
                         </div>
                     )
                 })}

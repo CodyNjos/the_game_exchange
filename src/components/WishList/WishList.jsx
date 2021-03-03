@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
+import {useStyles} from '../GameCardStyle/GameCardStyle'
+
 function WishList() {
     const dispatch = useDispatch();
     const history = useHistory()
@@ -20,10 +22,11 @@ function WishList() {
         }
         history.push(`/profiles/${user}`)
     }
+    const classes=useStyles()
     return (
         <>
             <p>Wish List Page</p>
-            <TextField label= 'Search Wishlist' value={search} onChange={(e) => setSearch( e.target.value)}/>
+            <TextField label='Search Wishlist' value={search} onChange={(e) => setSearch(e.target.value)} />
             {wishlist.length > 0 ?
                 <>
                     <div className='cardWrap'>
@@ -31,10 +34,16 @@ function WishList() {
                             return (
 
                                 <div key={games.id} className="gameCard" >
-                                    <p>{games.game_name}</p> <br />
-                                    <img src={games.img_url} />
-                                    <p>{games.username} is looking for this</p>
-                                    <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View Profile</Button>
+                                    <Paper className={classes.paper} elevation={20}>
+                                        <Card className={classes.root}>
+                                            <CardContent>
+                                                <p>{games.game_name}</p> <br />
+                                                <img src={games.img_url} />
+                                                <p>{games.username} is looking for this</p>
+                                                <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View Profile</Button>
+                                            </CardContent>
+                                        </Card>
+                                    </Paper>
                                 </div>
 
                             )
@@ -43,7 +52,7 @@ function WishList() {
                 </>
                 :
                 <h2>No WishList Games Found Matching Search Results</h2>
-                }
+            }
         </>
     )
 }

@@ -8,6 +8,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
   text-align: center;
+  background-color: rgb(252, 245, 235);
+  background-image: url('https://i.imgur.com/YK6TV7v.png');
 }
 
 img {
@@ -110,13 +112,13 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
-.gameCard{
+/* .gameCard{
   border: 1px solid black;
   width: 300px;
   text-align: center;
   margin: 10px;
   padding: 10px;
-}
+} */
 .cardWrap{
   display : flex;
   flex-wrap: wrap;

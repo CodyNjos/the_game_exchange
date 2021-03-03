@@ -5,6 +5,7 @@ import { put, takeEvery, } from 'redux-saga/effects';
 function* addGame(action) {
     console.log('adding to collection',action.payload)
     yield axios.post('/api/games/add', action.payload)
+    yield put({ type: 'GET_GAMES', payload: '' })
 }
 //makes post request to add game to wishlist
 function* addWishlist(action) {
