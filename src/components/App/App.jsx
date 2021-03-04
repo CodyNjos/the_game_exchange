@@ -25,6 +25,7 @@ import HomePage from '../HomePage/HomePage'
 import ProfilePage from '../ProfilePage/ProfilePage'
 import WishList from '../WishList/WishList'
 import ProfileOther from '../ProfileOther/ProfileOther'
+import DetailsPage from '../DetailsPage/DetailsPage'
 import './App.css';
 
 function App() {
@@ -90,6 +91,10 @@ function App() {
           
           <ProtectedRoute exact path ='/edit/:id'>
             <EditPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path ='/details/:id'>
+            <DetailsPage/>
           </ProtectedRoute>
           
           <ProtectedRoute exact path ='/homepage'>

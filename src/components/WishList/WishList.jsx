@@ -22,7 +22,7 @@ function WishList() {
         }
         history.push(`/profiles/${user}`)
     }
-    const classes=useStyles()
+    const classes = useStyles()
     return (
         <>
             <p>Wish List Page</p>
@@ -37,10 +37,10 @@ function WishList() {
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
                                             <CardContent>
-                                                <p>{games.game_name}</p> <br />
+                                                <p><strong>{games.game_name}</strong></p> <br />
                                                 <img src={games.img_url} />
                                                 <p>{games.username} is looking for this</p>
-                                                <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View Profile</Button>
+                                                <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View </Button>
                                             </CardContent>
                                         </Card>
                                     </Paper>

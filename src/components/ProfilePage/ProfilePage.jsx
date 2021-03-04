@@ -15,7 +15,6 @@ function ProfilePage() {
     
     
     const usersGames = store.games.filter(games => games.user_id === store.user.id)
-   
     const usersCollection = usersGames.filter(games => games.wish_list === false)
     const usersTradeable = usersGames.filter(games => games.tradeable === true)
     const usersWish = usersGames.filter(games => games.wish_list === true)
@@ -27,7 +26,7 @@ function ProfilePage() {
     }
     return (
         <>
-            <p>Profile Page</p>
+            <h1>{store.user.username}'s Profile</h1><br/>
             <h2>Tradeable Games</h2>
             <div className='cardWrap'>
                 {usersTradeable.map(game => {
@@ -37,7 +36,7 @@ function ProfilePage() {
                              <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                            <p>{game.game_name}</p><br />
+                            <p><strong>{game.game_name}</strong></p><br />
                             <img src={game.img_url} /> <br />
                             <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
                             </CardContent>
@@ -60,7 +59,7 @@ function ProfilePage() {
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                            <p>{wish.game_name}</p><br />
+                            <p><strong>{wish.game_name}</strong></p><br />
                             <img src={wish.img_url} /><br />
                             <Button className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
                             </CardContent>
@@ -82,7 +81,7 @@ function ProfilePage() {
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                            <p>{game.game_name}</p><br />
+                            <p><strong>{game.game_name}</strong></p><br />
                             <img src={game.img_url} /><br />
                             <Button className={classes.button} variant="contained" color="primary"onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
                             </CardContent>

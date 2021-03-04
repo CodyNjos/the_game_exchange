@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import { Button } from '@material-ui/core'
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContetText, DialogContentText, DialogTitle } from '@material-ui/core'
 
 function EditPage() {
 
@@ -9,6 +9,7 @@ function EditPage() {
     const params = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
+    const [open, setOpen] = useState(false);
     //Used to edit the tradeable status the value of 'boolean' is hardcoded 
     //true or false into the buttons that run this function.
     const editTradeable = (boolean) => {
@@ -25,8 +26,15 @@ function EditPage() {
         dispatch({ type: 'EDIT_GAME', payload: params.id });
     }, []);
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-    return (store.userGames.length === 0 ? 
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (store.userGames.length === 0 ?
         <>
             <h1>404</h1>
             <p>Game Not Found</p>
@@ -42,8 +50,8 @@ function EditPage() {
                 <>
                     <p>Edit Game Page</p>
                     <h2>{store.userGames[0].game_name}</h2>
-                    <img src={store.userGames[0].img_url} />
-
+                    <img src={store.userGames[0].img_url} /> <br />
+                    {/* <TextField  multiline rows={4}></TextField> */}
                     {store.userGames[0].tradeable === true ?
                         <>
                             <p> Tradeable: Yes </p>
@@ -55,9 +63,25 @@ function EditPage() {
                             <Button variant="contained" color="primary" onClick={() => editTradeable(true)}>Mark as Tradeable</Button>
                         </>
                     }
-                    <br/><br/>
-                    <Button variant="contained" color="default" onClick={deleteGame}>Remove From Collection</Button>
+                    <br /><br />
+                    <Button variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
                 </>}
+            <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" >
+                <DialogTitle id="alert-dialog-title">{`Remove ${store.userGames[0].game_name}`}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Are you sure you want to remove this game from your collection? This can not be undone.
+                     </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} variant="contained" color="default">
+                        Cancel
+                     </Button>
+                    <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
+                        Remove
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     )
 }

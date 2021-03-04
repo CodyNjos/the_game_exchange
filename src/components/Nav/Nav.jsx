@@ -31,13 +31,13 @@ function Nav() {
              My Profile 
         </Link>
 
-        {user.id && (
+        {/* {user.id && (
           <>
             <Link className="navLink" to="/info">
               Info Page
             </Link>
           </>
-        )}
+        )} */}
         <Link className="navLink" to="/wishlist">
           Wish List
         </Link>

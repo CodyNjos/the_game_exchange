@@ -10,7 +10,6 @@ router.get('/:id', (req, res) => {
     WHERE "user_id" = ${id}`;
     pool.query(query)
         .then(result => {
-            console.log(result.rows)
             res.send(result.rows)
         }).catch(err => {
             console.log('Error in get all games', err)
@@ -22,12 +21,11 @@ router.get('/:id', (req, res) => {
 //GET ALL GAMES ROUTER
 router.get('/', (req, res) => {
     if (req.query.search.length === 0){
-        console.log('no search')
     query = `SELECT * FROM  "user"
-    JOIN "games" ON "user"."id"  = "games"."user_id"`;
+    JOIN "games" ON "user"."id"  = "games"."user_id"
+    ORDER BY "games"."id" DESC`;
     }
     else{
-        console.log('yes search')
         query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
     WHERE "game_name" ILIKE '${req.query.search}%'`;
@@ -44,7 +42,9 @@ router.get('/', (req, res) => {
 //GET ONE GAME
 router.get('/edit/:id', (req,res) => {
     const id = req.params.id
-    const query = `SELECT * FROM games WHERE id = ${id}`
+    const query = `SELECT * FROM "user" 
+    JOIN "games" on "user"."id"  = "games"."user_id" 
+    WHERE "games"."id" = ${id}`
     pool.query(query)
         .then(result => {
             res.send(result.rows)

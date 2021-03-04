@@ -34,7 +34,7 @@ function ProfileOther() {
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                            <p>{game.game_name}</p><br />
+                            <p><strong>{game.game_name}</strong></p><br />
                             <img src={game.img_url} />
                             </CardContent>
                             </Card>
@@ -53,7 +53,7 @@ function ProfileOther() {
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                            <p>{wish.game_name}</p><br />
+                            <p><strong>{wish.game_name}</strong></p><br />
                             <img src={wish.img_url} />
                             </CardContent>
                             </Card>
