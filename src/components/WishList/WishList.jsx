@@ -40,7 +40,7 @@ function WishList() {
                                                 <p><strong>{games.game_name}</strong></p> <br />
                                                 <img src={games.img_url} />
                                                 <p>{games.username} is looking for this</p>
-                                                <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View </Button>
+                                                <Button variant="contained" color="primary" onClick={() => viewProfile(games.user_id)}>View Profile</Button>
                                             </CardContent>
                                         </Card>
                                     </Paper>

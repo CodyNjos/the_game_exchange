@@ -26,7 +26,10 @@ function ProfilePage() {
     }
     return (
         <>
-            <h1>{store.user.username}'s Profile</h1><br />
+            <h1>Your Profile</h1>
+            <h4>Username: {store.user.username}</h4>
+            <h4>Contant Email: {store.user.email} </h4>
+            <br/>
             <h2>Tradeable Games</h2>
             <div className='cardWrap'>
                 {usersTradeable.map(game => {
