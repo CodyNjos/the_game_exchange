@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContetText, DialogContentText, DialogTitle } from '@material-ui/core'
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
 
 function EditPage() {
 
@@ -18,6 +18,7 @@ function EditPage() {
     //Deletes selected game from database, and redirects user back to profile page
     const deleteGame = () => {
         dispatch({ type: 'DELETE_GAME', payload: params.id })
+        setOpen(false);
         history.push('/profile')
     }
     //Runs a dispatch to to get the info from the selected game from the value of the params(the games id)
@@ -25,11 +26,11 @@ function EditPage() {
     useEffect(() => {
         dispatch({ type: 'EDIT_GAME', payload: params.id });
     }, []);
-
+    
+    //used to open and close the mat ui confirm delete modal
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };
@@ -77,7 +78,7 @@ function EditPage() {
                     <Button onClick={handleClose} variant="contained" color="default">
                         Cancel
                      </Button>
-                    <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
+                    <Button onClick={deleteGame} variant="contained" color="primary" autoFocus>
                         Remove
                     </Button>
                 </DialogActions>
