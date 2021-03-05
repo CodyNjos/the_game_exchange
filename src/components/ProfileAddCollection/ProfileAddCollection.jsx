@@ -33,7 +33,6 @@ function ProfileAddCollection() {
         img_url: "",
         details: ""
         })
-      
     }
     return (form ?
         <>

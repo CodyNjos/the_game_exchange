@@ -52,7 +52,7 @@ function EditPage() {
                     <p>Edit Game Page</p>
                     <h2>{store.userGames[0].game_name}</h2>
                     <img src={store.userGames[0].img_url} /> <br />
-                    {/* <TextField  multiline rows={4}></TextField> */}
+                    <TextField className='addInput' value={store.userGames[0].details} multiline max-rows={4}></TextField>
                     {store.userGames[0].tradeable === true ?
                         <>
                             <p> Tradeable: Yes </p>

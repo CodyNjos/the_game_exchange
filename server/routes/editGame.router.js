@@ -21,16 +21,16 @@ router.put('/tradeable/:id', (req, res) => {
       res.sendStatus(500);
     });
   });
-  router.put('/image/:id', (req, res) => {
+  router.put('/details/:id', (req, res) => {
     // req.body should contain a category_id to add to this favorite image
     const id = req.params.id;
-    const image = req.body.img_url;
+    const details = req.body.details;
     console.log(`Updating the game with id:${id}`);
-    console.log(id, image)
-    const queryText = `UPDATE "games" SET "img_url" = $1
+    console.log(id, details)
+    const queryText = `UPDATE "games" SET "details" = $1
                       WHERE "id" = $2;`;
   
-    pool.query(queryText, [image, id]).then(() => {
+    pool.query(queryText, [details, id]).then(() => {
       console.log(`Updated successfully`);
       res.sendStatus(200);
     }).catch(err => {
