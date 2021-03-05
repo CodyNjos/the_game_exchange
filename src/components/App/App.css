@@ -141,3 +141,15 @@ input {
 .searchBar{
   width: 30%;
 }
+.addInput{
+width: 30%;
+padding: 60px;
+margin: 60px;
+}
+/* .formButton{
+ 
+} */
+.buttonWrap{
+  margin: 20px;
+  padding: 20px
+}

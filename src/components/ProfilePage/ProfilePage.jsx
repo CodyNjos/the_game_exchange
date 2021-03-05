@@ -29,7 +29,7 @@ function ProfilePage() {
             <h1>Your Profile</h1>
             <h4>Username: {store.user.username}</h4>
             <h4>Contant Email: {store.user.email} </h4>
-            <br/>
+            <br />
             <h2>Tradeable Games</h2>
             <div className='cardWrap'>
                 {usersTradeable.map(game => {
@@ -39,12 +39,14 @@ function ProfilePage() {
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
-                                        <p><strong>{game.game_name}</strong></p><br />
-                                        <img src={game.img_url} /> <br />
+                                        <p><strong>{game.game_name}</strong></p>
+                                        <br />
+                                        <img src={game.img_url} />
+                                        <br />
                                         <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit</Button>
                                     </CardContent>
                                 </Card>
-                            </Paper>
+                            </Paper>-
                         </div>
 
                     )
