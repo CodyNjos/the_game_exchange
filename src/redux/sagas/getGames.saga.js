@@ -22,7 +22,7 @@ function* getUserGames(action) {
     }
 }
 
-function* editGame(action) {
+function* getEditGame(action) {
     try{
         const games = yield axios.get(`/api/games/edit/${action.payload}`)
         yield put ({type: 'SET_EDIT_GAMES', payload: games.data})
@@ -31,12 +31,13 @@ function* editGame(action) {
         }
     
 }
-
+   
 // listener for actions in this saga
 function* getGamesSaga() {
     yield takeEvery("GET_GAMES", getAllGames);
     yield takeEvery("GET_USER_GAMES", getUserGames)
-    yield takeEvery("EDIT_GAME", editGame)
+    yield takeEvery("EDIT_GAME", getEditGame)
+    
     
   }
 

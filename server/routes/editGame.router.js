@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 //EDIT GAME TRADEABLE ROUTER
-router.put('/tradeable/:id', (req, res) => {
+router.put('/tradeable/:id', rejectUnauthenticated, (req, res) => {
     // req.body should contain a category_id to add to this favorite image
     console.log(req.body)
     const id = req.params.id;
@@ -21,7 +24,8 @@ router.put('/tradeable/:id', (req, res) => {
       res.sendStatus(500);
     });
   });
-  router.put('/details/:id', (req, res) => {
+
+  router.put('/details/:id', rejectUnauthenticated, (req, res) => {
     // req.body should contain a category_id to add to this favorite image
     const id = req.params.id;
     const details = req.body.details;

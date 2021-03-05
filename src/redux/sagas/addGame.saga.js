@@ -24,12 +24,17 @@ function* editTradeable(action) {
     yield axios.put(`/api/edit/tradeable/${action.payload.id}`, action.payload)
     yield put({type: 'EDIT_GAME', payload: action.payload.id})
 }
+function* editDetails(action) {
+    yield axios.put(`/api/edit/details/${action.payload.id}`, action.payload)
+    yield put({type: 'EDIT_GAME', payload: action.payload.id})
+}
 // listener for actions in this saga
 function* addGameSaga() {
     yield takeEvery('ADD_GAME', addGame);
     yield takeEvery('ADD_WISHLIST', addWishlist);
     yield takeEvery('DELETE_GAME', deleteGame);
     yield takeEvery('EDIT_TRADEABLE', editTradeable)
+    yield takeEvery("EDIT_DETAILS", editDetails)
   }
 
   export default addGameSaga;

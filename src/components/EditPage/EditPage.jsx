@@ -10,11 +10,14 @@ function EditPage() {
     const history = useHistory()
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false);
+    const [details, setDetails] = useState('')
     //Used to edit the tradeable status the value of 'boolean' is hardcoded 
     //true or false into the buttons that run this function.
     const editTradeable = (boolean) => {
         dispatch({ type: 'EDIT_TRADEABLE', payload: { id: params.id, boolean } })
+        setDetails("")
     }
+
     //Deletes selected game from database, and redirects user back to profile page
     const deleteGame = () => {
         dispatch({ type: 'DELETE_GAME', payload: params.id })
@@ -26,7 +29,8 @@ function EditPage() {
     useEffect(() => {
         dispatch({ type: 'EDIT_GAME', payload: params.id });
     }, []);
-    
+
+
     //used to open and close the mat ui confirm delete modal
     const handleClickOpen = () => {
         setOpen(true);
@@ -34,6 +38,14 @@ function EditPage() {
     const handleClose = () => {
         setOpen(false);
     };
+    const editDetails = () => {
+        console.log(details)
+        dispatch({ type: 'EDIT_DETAILS', payload: { details: details, id: params.id } })
+        setDetails("")
+    }
+
+
+
 
     return (store.userGames.length === 0 ?
         <>
@@ -52,10 +64,9 @@ function EditPage() {
                     <p>Edit Game Page</p>
                     <h2>{store.userGames[0].game_name}</h2>
                     <img src={store.userGames[0].img_url} /> <br />
-                    <TextField className='addInput' value={store.userGames[0].details} multiline max-rows={4}></TextField>
                     {store.userGames[0].tradeable === true ?
                         <>
-                            <p> Tradeable: Yes </p>
+                            <h4> Tradeable: Yes </h4>
                             <Button variant="contained" color="primary" onClick={() => editTradeable(false)}>Remove From Tradeable</Button>
                         </>
                         :
@@ -64,6 +75,23 @@ function EditPage() {
                             <Button variant="contained" color="primary" onClick={() => editTradeable(true)}>Mark as Tradeable</Button>
                         </>
                     }
+                    <div className="detailsWrap">
+                        <div className="details">
+                            {store.userGames[0].details ?
+                                <>
+                                    <p className='detailsText'>{store.userGames[0].details}</p>
+                                </>
+                                :
+                                <>
+                                    <p>{store.userGames[0].username} did not provied details for this game.</p>
+                                </>}
+                        </div>
+                    </div>
+                    <h4>Set New Details</h4>
+                    <TextField variant="outlined" className='addInput' value={details} multiline onChange={(e) => setDetails(e.target.value)}></TextField><br /><br />
+                    <Button variant="contained" color="primary" onClick={editDetails}>Save New Details</Button>
+
+
                     <br /><br />
                     <Button variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
                 </>}

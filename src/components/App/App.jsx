@@ -79,7 +79,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute // with authRedirect: - if logged in, redirects to "/user" - else shows RegisterPage at "/registration"
-            exact path="/registration" authRedirect="/user"
+            exact path="/registration" authRedirect="/homepage"
           >
             <RegisterPage />
           </ProtectedRoute>

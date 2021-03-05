@@ -20,37 +20,27 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <h2>{heading}</h2>
+          <h2>Welcome To The Game Exchange!</h2>
+          {/* ¡!¡! THIS STILL NEEDS A TON OF WORK ¡!¡!*/}
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+            Here at The Game Exchange, we know that regarless of how much you treasure your game collection,
+            theres always some outliers that you just dont play anymore. Maybe you've even set aside a dark corner
+            of closet to store such games, and have forget what all is back there.
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+            We would like to provide a platform to not only catalog all your games, but also get excess games out of your closet, 
+            and exchange them for games you'll get more playtime out of.
           </p>
 
           <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            If you do not have an account, please click the "Create Account" button to get started. Please keep in mind that the email you register with will be 
+            the email given to other users to contanct you. Once you've created an account, you can navigate to the homepage. Here you will find a list all the games users 
+            are willing to trade away. On the In Demand page, you will find a list of all the games users would like to recive in a trade. 
+            If you would like to add games to you collection, and your wishlist navigate to "My Profile". here you will find buttons to add games to you collection and wishlist. If a game 
+            is marked tradeable, users will see your game on the homepage.
+            To mark a game as "tradeable", simply click the edit button in your collection section. This will allow you to mark the game as tradeable, as well as edit the games description.
+            If you mak
           </p>
         </div>
         <div className="grid-col grid-col_4">

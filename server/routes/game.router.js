@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 
 //GET ALL FROM USER
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated,(req, res) => {
     const id = req.params.id
     const query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
@@ -19,7 +22,7 @@ router.get('/:id', (req, res) => {
 
 
 //GET ALL GAMES ROUTER
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     if (req.query.search.length === 0){
     query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
@@ -40,7 +43,7 @@ router.get('/', (req, res) => {
 });
 
 //GET ONE GAME
-router.get('/edit/:id', (req,res) => {
+router.get('/edit/:id', rejectUnauthenticated, (req,res) => {
     const id = req.params.id
     const query = `SELECT * FROM "user" 
     JOIN "games" on "user"."id"  = "games"."user_id" 
@@ -55,7 +58,7 @@ router.get('/edit/:id', (req,res) => {
 })
 
 //ADD GAME TO COLLECTION ROUTER
-router.post('/add', (req, res) => {
+router.post('/add', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const query = `INSERT INTO "games" ("user_id", "game_name", "img_url", "details") 
     VALUES ($1, $2, $3, $4);`
@@ -71,7 +74,7 @@ router.post('/add', (req, res) => {
 
 
 //ADD TO WISHLIST ROUTER
-router.post('/add/wish', (req, res) => {
+router.post('/add/wish', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const query = `INSERT INTO "games" ("user_id", "game_name", "img_url", wish_list) 
     VALUES ($1, $2, $3, $4);`
@@ -86,7 +89,7 @@ router.post('/add/wish', (req, res) => {
 
 
 //DELTE GAMES ROUTER
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
     console.log('Deleting game at id:', id);
     const queryText = `DELETE FROM "games" WHERE "id" = $1;`;
