@@ -119,6 +119,9 @@ input {
   align-items: center;
   margin: 40px;
 }
+.detailsText{
+  padding: 20px;
+}
 .details{
   width: 60%;
   min-height: 80px;
@@ -134,4 +137,7 @@ input {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.searchBar{
+  width: 30%;
 }

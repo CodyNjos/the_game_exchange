@@ -25,14 +25,13 @@ function WishList() {
     const classes = useStyles()
     return (
         <>
-            <p>Wish List Page</p>
-            <TextField label='Search Wishlist' value={search} onChange={(e) => setSearch(e.target.value)} />
+            <h1>In Demand Games</h1>
+            <TextField className= 'searchBar' label='Search Wishlist' variant="outlined" value={search} onChange={(e) => setSearch(e.target.value)} />
             {wishlist.length > 0 ?
                 <>
                     <div className='cardWrap'>
                         {wishlist.map(games => {
                             return (
-
                                 <div key={games.id} className="gameCard" >
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
@@ -45,7 +44,6 @@ function WishList() {
                                         </Card>
                                     </Paper>
                                 </div>
-
                             )
                         })}
                     </div>

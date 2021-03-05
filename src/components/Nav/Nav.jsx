@@ -39,7 +39,7 @@ function Nav() {
           </>
         )} */}
         <Link className="navLink" to="/wishlist">
-          Wish List
+          In Demand
         </Link>
         <Link className="navLink" to="/about">
           About

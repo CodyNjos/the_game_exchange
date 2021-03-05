@@ -42,7 +42,7 @@ function DetailsPage() {
             <div className="details">
                 {store.userGames[0].details ?
                 <>
-                <p>{store.userGames[0].details}</p>
+                <p className ='detailsText'>{store.userGames[0].details}</p>
                 </>
                 :
                 <>

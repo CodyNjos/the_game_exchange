@@ -10,13 +10,15 @@ function ProfileAddCollection() {
         setNewGame({
             user_id: store.user.id,
             game_name: "",
-            img_url: ""
+            img_url: "",
+            details:""
             })
     }
     const [newGame, setNewGame] = useState({
         user_id: store.user.id,
         game_name: "",
-        img_url: ""
+        img_url: "",
+        details:""
     })
     const addGame = () => {
         console.log(newGame)
@@ -28,7 +30,8 @@ function ProfileAddCollection() {
         setNewGame({
         user_id: store.user.id,
         game_name: "",
-        img_url: ""
+        img_url: "",
+        details: ""
         })
       
     }
@@ -42,6 +45,7 @@ function ProfileAddCollection() {
             <form onSubmit={addGame}>
                 <TextField value={newGame.game_name} onChange={(e) => setNewGame ({ ...newGame, game_name: e.target.value})} placeholder='Title' />
                 <TextField value={newGame.img_url} onChange={(e) => setNewGame ({ ...newGame, img_url: e.target.value})} type="url" placeholder='Image Url' />
+                <TextField value={newGame.description} onChange={(e) => setNewGame ({ ...newGame, details: e.target.value})}  placeholder='Details' />
                 <Button variant="contained" color="primary"type='submit'>Submit</Button>
             </form>
             <Button variant="contained" color="default" onClick={toggleForm}>Cancel</Button>
