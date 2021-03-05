@@ -16,7 +16,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      
+
 
       <div className="grid">
         <div className="grid-col grid-col_8">
@@ -29,15 +29,15 @@ function LandingPage() {
           </p>
 
           <p>
-            We would like to provide a platform to not only catalog all your games, but also get excess games out of your closet, 
+            We would like to provide a platform to not only catalog all your games, but also get excess games out of your closet,
             and exchange them for games you'll get more playtime out of.
           </p>
 
           <p>
-            If you do not have an account, please click the "Create Account" button to get started. Please keep in mind that the email you register with will be 
-            the email given to other users to contanct you. Once you've created an account, you can navigate to the homepage. Here you will find a list all the games users 
-            are willing to trade away. On the In Demand page, you will find a list of all the games users would like to recive in a trade. 
-            If you would like to add games to you collection, and your wishlist navigate to "My Profile". here you will find buttons to add games to you collection and wishlist. If a game 
+            If you do not have an account, please click the "Create Account" button to get started. Please keep in mind that the email you register with will be
+            the email given to other users to contanct you. Once you've created an account, you can navigate to the homepage. Here you will find a list all the games users
+            are willing to trade away. On the In Demand page, you will find a list of all the games users would like to recive in a trade.
+            If you would like to add games to you collection, and your wishlist navigate to "My Profile". here you will find buttons to add games to you collection and wishlist. If a game
             is marked tradeable, users will see your game on the homepage.
             To mark a game as "tradeable", simply click the edit button in your collection section. This will allow you to mark the game as tradeable, as well as edit the games description.
             If you mak
@@ -45,7 +45,7 @@ function LandingPage() {
         </div>
         <div className="grid-col grid-col_4">
           {/* <RegisterForm /> */}
-            <LoginForm/>
+          <LoginForm />
           <center>
             <h4>Don't Have An Account?</h4>
             <button className="btn btn_sizeSm" onClick={onLogin}>

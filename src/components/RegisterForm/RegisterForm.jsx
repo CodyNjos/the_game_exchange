@@ -52,7 +52,7 @@ function RegisterForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <br/>
+        <br />
         <label htmlFor="email">
           Email:
           <input

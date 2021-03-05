@@ -88,29 +88,29 @@ function App() {
             exact path="/home" authRedirect="/homepage">
             <LandingPage />
           </ProtectedRoute>
-          
-          <ProtectedRoute exact path ='/edit/:id'>
-            <EditPage/>
+
+          <ProtectedRoute exact path='/edit/:id'>
+            <EditPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path ='/details/:id'>
-            <DetailsPage/>
-          </ProtectedRoute>
-          
-          <ProtectedRoute exact path ='/homepage'>
-            <HomePage/>
+          <ProtectedRoute exact path='/details/:id'>
+            <DetailsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path = '/profile'>
-            <ProfilePage/>
-          </ProtectedRoute>
-          
-          <ProtectedRoute path = '/profiles/:id'>
-            <ProfileOther/>
+          <ProtectedRoute exact path='/homepage'>
+            <HomePage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path = '/wishlist'>
-            <WishList/>
+          <ProtectedRoute exact path='/profile'>
+            <ProfilePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute path='/profiles/:id'>
+            <ProfileOther />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path='/wishlist'>
+            <WishList />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}

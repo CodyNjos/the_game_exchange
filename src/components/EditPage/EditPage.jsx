@@ -61,7 +61,7 @@ function EditPage() {
                 </>
                 :
                 <>
-                    <p>Edit Game Page</p>
+                    <h1>Edit</h1>
                     <h2>{store.userGames[0].game_name}</h2>
                     <img src={store.userGames[0].img_url} /> <br />
                     {store.userGames[0].tradeable === true ?
@@ -71,7 +71,7 @@ function EditPage() {
                         </>
                         :
                         <>
-                            <p> Tradeable: No </p>
+                            <h4> Tradeable: No </h4>
                             <Button variant="contained" color="primary" onClick={() => editTradeable(true)}>Mark as Tradeable</Button>
                         </>
                     }

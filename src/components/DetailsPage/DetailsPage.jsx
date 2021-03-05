@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import { Button  } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 
 function DetailsPage() {
 
@@ -36,19 +36,19 @@ function DetailsPage() {
         <>
             <h1>{store.userGames[0].game_name}</h1>
             <h4>Offered by: {store.userGames[0].username}</h4>
-            <h4>Contact at: {store.userGames[0].email}</h4> 
+            <h4>Contact at: {store.userGames[0].email}</h4>
             <img src={store.userGames[0].img_url} />
-            <div className= "detailsWrap">
-            <div className="details">
-                {store.userGames[0].details ?
-                <>
-                <p className ='detailsText'>{store.userGames[0].details}</p>
-                </>
-                :
-                <>
-                <p>{store.userGames[0].username} did not provied details for this game.</p>
-                </>}
-            </div>
+            <div className="detailsWrap">
+                <div className="details">
+                    {store.userGames[0].details ?
+                        <>
+                            <p className='detailsText'>{store.userGames[0].details}</p>
+                        </>
+                        :
+                        <>
+                            <p>{store.userGames[0].username} did not provied details for this game.</p>
+                        </>}
+                </div>
             </div>
             <Button variant="contained" color="primary" onClick={() => viewProfile(store.userGames[0].user_id)}>View Profile</Button>
 

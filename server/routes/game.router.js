@@ -3,10 +3,10 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const {
     rejectUnauthenticated,
-  } = require('../modules/authentication-middleware');
+} = require('../modules/authentication-middleware');
 
 //GET ALL FROM USER
-router.get('/:id', rejectUnauthenticated,(req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
     const query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
@@ -23,12 +23,12 @@ router.get('/:id', rejectUnauthenticated,(req, res) => {
 
 //GET ALL GAMES ROUTER
 router.get('/', rejectUnauthenticated, (req, res) => {
-    if (req.query.search.length === 0){
-    query = `SELECT * FROM  "user"
+    if (req.query.search.length === 0) {
+        query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
     ORDER BY "games"."id" DESC`;
     }
-    else{
+    else {
         query = `SELECT * FROM  "user"
     JOIN "games" ON "user"."id"  = "games"."user_id"
     WHERE "game_name" ILIKE '${req.query.search}%'`;
@@ -43,7 +43,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 //GET ONE GAME
-router.get('/edit/:id', rejectUnauthenticated, (req,res) => {
+router.get('/edit/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
     const query = `SELECT * FROM "user" 
     JOIN "games" on "user"."id"  = "games"."user_id" 

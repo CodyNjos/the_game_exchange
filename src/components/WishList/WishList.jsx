@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
 import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
-import {useStyles} from '../GameCardStyle/GameCardStyle'
+import { useStyles } from '../GameCardStyle/GameCardStyle'
 
 function WishList() {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function WishList() {
     return (
         <>
             <h1>In Demand Games</h1>
-            <TextField className= 'searchBar' label='Search In Demand Games' value={search} onChange={(e) => setSearch(e.target.value)} />
+            <TextField className='searchBar' label='Search In Demand Games' value={search} onChange={(e) => setSearch(e.target.value)} />
             {wishlist.length > 0 ?
                 <>
                     <div className='cardWrap'>

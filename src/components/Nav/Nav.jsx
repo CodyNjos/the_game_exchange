@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -23,12 +23,12 @@ function Nav() {
         <h2 className="nav-title">The Game Exchange</h2>
       </Link>
       <div>
-        <Link className="navLink" to = '/homepage'> 
-        {/* to={loginLinkData.path}> {loginLinkData.text} */}
+        <Link className="navLink" to='/homepage'>
+          {/* to={loginLinkData.path}> {loginLinkData.text} */}
         Home
         </Link>
         <Link className="navLink" to="/profile">
-             My Profile 
+          My Profile
         </Link>
 
         {/* {user.id && (
@@ -45,7 +45,7 @@ function Nav() {
           About
         </Link>
         <LogOutButton className="navLink" />
-        
+
       </div>
     </div>
   );
