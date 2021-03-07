@@ -40,7 +40,7 @@ function LandingPage() {
             If you would like to add games to you collection, and your wishlist navigate to "My Profile". here you will find buttons to add games to you collection and wishlist. If a game
             is marked tradeable, users will see your game on the homepage.
             To mark a game as "tradeable", simply click the edit button in your collection section. This will allow you to mark the game as tradeable, as well as edit the games description.
-            If you mak
+           
           </p>
         </div>
         <div className="grid-col grid-col_4">

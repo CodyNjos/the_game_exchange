@@ -83,7 +83,7 @@ function EditPage() {
                                 </>
                                 :
                                 <>
-                                    <p>{store.userGames[0].username} did not provied details for this game.</p>
+                                    <p> You did not provied any details for this game.</p>
                                 </>}
                         </div>
                     </div>
