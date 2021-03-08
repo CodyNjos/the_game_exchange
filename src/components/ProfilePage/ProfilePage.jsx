@@ -28,7 +28,7 @@ function ProfilePage() {
         <>
             <h1>Your Profile</h1>
             <h4>Username: {store.user.username}</h4>
-            <h4>Contant Email: {store.user.email} </h4>
+            <h4>Contact Email: {store.user.email} </h4>
             <br />
             <h2>Tradeable Games</h2>
             <div className='cardWrap'>

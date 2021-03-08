@@ -23,8 +23,8 @@ function LandingPage() {
           <h2>Welcome To The Game Exchange!</h2>
           {/* ¡!¡! THIS STILL NEEDS A TON OF WORK ¡!¡!*/}
           <p>
-            Here at The Game Exchange, we know that regarless of how much you treasure your game collection,
-            theres always some outliers that you just dont play anymore. Maybe you've even set aside a dark corner
+            Here at The Game Exchange, we know that regardless of how much you treasure your game collection,
+            there's always some outliers that you just dont play anymore. Maybe you've even set aside a dark corner
             of closet to store such games, and have forget what all is back there.
           </p>
 

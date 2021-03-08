@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, TextField } from '@material-ui/core'
+
 function ProfileAddCollection() {
     const store = useSelector(store => store)
     const dispatch = useDispatch();
@@ -22,10 +23,10 @@ function ProfileAddCollection() {
     })
     const addGame = () => {
         console.log(newGame)
-        if (!newGame.game_name || !newGame.img_url) {
-            alert("please fill out all inputs");
-            return;
-        }
+      //  if (!newGame.game_name || !newGame.img_url) {
+      //      alert("please fill out all inputs");
+      //      return;
+      //  }
         dispatch({ type: 'ADD_GAME', payload: newGame })
         setNewGame({
             user_id: store.user.id,
@@ -41,6 +42,7 @@ function ProfileAddCollection() {
         </>
         :
         <>
+        
             <form onSubmit={addGame}>
                 <TextField className="addInput" value={newGame.game_name} onChange={(e) => setNewGame({ ...newGame, game_name: e.target.value })} label='Title' /><br /><br />
                 <TextField multiline rowsMax={4} className="addInput" value={newGame.details} onChange={(e) => setNewGame({ ...newGame, details: e.target.value })} label='Details' /><br /> <br />
@@ -51,8 +53,6 @@ function ProfileAddCollection() {
                 <Button className="formButton" variant="contained" color="primary" type='submit'>Submit</Button>
                 </div>
             </form>
-
-
         </>
     )
 }
