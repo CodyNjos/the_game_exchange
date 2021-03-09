@@ -9,4 +9,4 @@ const userGamesReducer = (state = [], action) => {
     }
 };
 
-export default userGamesReducer;
+module.exports = userGamesReducer;
