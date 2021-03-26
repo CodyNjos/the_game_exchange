@@ -14,7 +14,7 @@ To add games to you collection or wishlist, navigate to the Profile tab. Here yo
 ![](https://i.imgur.com/lWlpyaK.png)      
 
 
-To see games other people have on their wishlists, navigate to the In Demand Tab. Here you will find a list off all the games people are looking to receive in a trade. 
+To see games other people have on their wishlists, navigate to the In Demand Tab. Here you will find a list off all the games people are looking to receive in a trade. <br /> <br />
 ![](https://i.imgur.com/XXCz2hx.png)
 
 
