@@ -16,8 +16,7 @@ To add games to you collection or wishlist, navigate to the Profile tab. Here yo
 If you would like to Add a movie, simply click the buttton on the top of the page, and fill out the form that you will are directed to.
 ![]()
   
- ## Built Using
-The knowledge given to me by the fine folks at [Emerging Digital Academy](https://www.emergingacademy.org/).    
+ ## Built Using   
 [node.js](https://nodejs.org/en/)   
 [React](https://reactjs.org/)  
 [Express](https://expressjs.com/)   
