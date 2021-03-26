@@ -10,12 +10,18 @@ After you create an account, you will be directed to the home page. Here, you wi
 ![](https://i.imgur.com/ELJj6Xo.png)  
   
 
-To add games to you collection or wishlist, navigate to the Profile tab. Here you will be able to manage all of your games. Only games on your Wishlist and Tradable list are visible to other users. Your collection is visible only to you.
-![](https://i.imgur.com/lWlpyaK.png)
- 
-If you would like to Add a movie, simply click the buttton on the top of the page, and fill out the form that you will are directed to.
-![]()
-  
+To add games to you collection or wishlist, navigate to the Profile tab. Here you will be able to manage all of your games. Only games on your Wishlist and Tradable list are visible to other users. Your collection is visible only to you.      
+![](https://i.imgur.com/lWlpyaK.png)      
+
+
+To see games other people have on their wishlists, navigate to the In Demand Tab. Here you will find a list off all the games people are looking to receive in a trade. 
+![](https://i.imgur.com/XXCz2hx.png)
+
+
+To view another users Profile. Click the View Profile button on one of their listings. It will be on the game card for wishlist postings, or on the details page for Trade postings. Here you will see everything they are willing to trade and everything on their wishlist.
+![](https://i.imgur.com/AbEhIff.png)    
+
+
  ## Built Using   
 [node.js](https://nodejs.org/en/)   
 [React](https://reactjs.org/)  
