@@ -2,3 +2,9 @@ img{
     max-width: 200px;
     max-height: 200px;
 }
+.pageWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
