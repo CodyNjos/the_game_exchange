@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
 import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
+import { Pagination } from '@material-ui/lab'
 import { useStyles } from '../GameCardStyle/GameCardStyle'
 import './HomePage.css'
 function HomePage() {
@@ -9,10 +10,25 @@ function HomePage() {
     const history = useHistory()
     const store = useSelector(store => store);
     const [search, setSearch] = useState('')
+    
+
     useEffect(() => {
         dispatch({ type: 'GET_GAMES', payload: search });
     }, [search]);
+
+    
+
     const tradeable = store.games.filter(games => games.tradeable === true && games.wish_list === false)
+    useEffect(() => {
+        setNoOfPages(Math.ceil(tradeable.length / itemsPerPage));
+    }, [store.event])
+
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 6;
+    const [noOfPages, setNoOfPages] = useState(Math.ceil(tradeable.length / itemsPerPage))
+    const handleChange = (event, value) => {
+        setPage(value);
+    }
     const viewProfile = (id) => {
         console.log(id)
         history.push(`/details/${id}`)
@@ -25,7 +41,7 @@ function HomePage() {
             {tradeable.length > 0 ?
                 <>
                     <div className='cardWrap'>
-                        {tradeable.map(game => {
+                        {tradeable.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(game => {
                             return (
                                 <div key={game.id} className="gameCard" >
                                     <Paper className={classes.paper} elevation={20}>
@@ -41,6 +57,20 @@ function HomePage() {
                                 </div>
                             )
                         })}
+                        <br/><br/>
+                        
+                    </div>
+                    <div className="pageWrap">
+                        <Pagination
+                            style = {{margin:"auto"}}
+                            className="pagination"
+                            count={noOfPages}
+                            shape="rounded"
+                            variant="outlined"
+                            onChange={handleChange}
+                            defaultPage={1}
+                            showFirstButton
+                            showLastButton />
                     </div>
                 </>
                 :
