@@ -21,7 +21,7 @@ function HomePage() {
     const tradeable = store.games.filter(games => games.tradeable === true && games.wish_list === false)
     useEffect(() => {
         setNoOfPages(Math.ceil(tradeable.length / itemsPerPage));
-    }, [store.event])
+    }, [store.games])
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 6;
