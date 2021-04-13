@@ -3,7 +3,7 @@ import ProfileAddWishlist from '../ProfileAddWishlist/ProfileAddWishlist'
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
+import { TextField, Button, Paper, Card, CardContent, useMediaQuery } from '@material-ui/core'
 import { useStyles } from '../GameCardStyle/GameCardStyle'
 function ProfilePage() {
     const history = useHistory();
@@ -13,7 +13,8 @@ function ProfilePage() {
         dispatch({ type: 'GET_GAMES', payload: "" });
     }, [dispatch]);
 
-
+    const tablet = useMediaQuery("(min-width: 1200px)")
+    const phone = useMediaQuery("(min-width: 650px)")
     const usersGames = store.games.filter(games => games.user_id === store.user.id)
     const usersCollection = usersGames.filter(games => games.wish_list === false)
     const usersTradeable = usersGames.filter(games => games.tradeable === true)
@@ -35,7 +36,7 @@ function ProfilePage() {
                 {usersTradeable.map(game => {
                     return (
 
-                        <div key={game.id} className="gameCard">
+                        <div key={game.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`}>
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
@@ -60,7 +61,7 @@ function ProfilePage() {
                 {usersWish.map(wish => {
                     return (
 
-                        <div key={wish.id} className="gameCard" >
+                        <div key={wish.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
@@ -82,7 +83,7 @@ function ProfilePage() {
             <div className='cardWrap'>
                 {usersCollection.map(game => {
                     return (
-                        <div key={game.id} className="gameCard" >
+                        <div key={game.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
                             <Paper className={classes.paper} elevation={20}>
                                 <Card className={classes.root}>
                                     <CardContent>
