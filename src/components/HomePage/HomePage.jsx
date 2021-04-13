@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
+import { TextField, Button, Paper, Card, CardContent, useMediaQuery } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
 import { useStyles } from '../GameCardStyle/GameCardStyle'
 import './HomePage.css'
@@ -16,7 +16,7 @@ function HomePage() {
         dispatch({ type: 'GET_GAMES', payload: search });
     }, [search]);
 
-    
+    const tablet = useMediaQuery("(min-width: 1200px)")
 
     const tradeable = store.games.filter(games => games.tradeable === true && games.wish_list === false)
     useEffect(() => {
@@ -43,7 +43,7 @@ function HomePage() {
                     <div className='cardWrap'>
                         {tradeable.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(game => {
                             return (
-                                <div key={game.id} className="gameCard" >
+                                <div key={game.id} className={`${tablet ? "gameCard" : "tabletCard"}`} >
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
                                             <CardContent>

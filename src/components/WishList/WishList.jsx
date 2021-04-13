@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
-import { TextField, Button, Paper, Card, CardContent } from '@material-ui/core'
+import { TextField, Button, Paper, Card, CardContent, useMediaQuery } from '@material-ui/core'
 import { useStyles } from '../GameCardStyle/GameCardStyle'
 import { Pagination } from '@material-ui/lab'
 function WishList() {
@@ -16,7 +16,8 @@ function WishList() {
     useEffect(() => {
         setNoOfPages(Math.ceil(wishlist.length / itemsPerPage));
     }, [store.games])
-
+    
+    const tablet = useMediaQuery("(min-width: 1200px)")
     
     const [page, setPage] = useState(1);
     const itemsPerPage = 12;
@@ -44,7 +45,7 @@ function WishList() {
                     <div className='cardWrap'>
                         {wishlist.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(games => {
                             return (
-                                <div key={games.id} className="gameCard" >
+                                <div key={games.id} className={`${tablet ? "gameCard" : "tabletCard"}`} >
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
                                             <CardContent>

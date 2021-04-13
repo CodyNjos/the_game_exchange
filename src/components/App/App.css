@@ -141,13 +141,16 @@ input {
   display : flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items:top;
 }
 .searchBar{
   width: 30%;
 }
 .gameCard{
   width: 30%;
+}
+.tabletCard{
+  width: 50%;
 }
 .addInput{
 width: 30%;
