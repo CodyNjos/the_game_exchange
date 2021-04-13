@@ -18,7 +18,7 @@ function WishList() {
     }, [store.games])
     
     const tablet = useMediaQuery("(min-width: 1200px)")
-    
+    const phone = useMediaQuery("(min-width: 650px)")
     const [page, setPage] = useState(1);
     const itemsPerPage = 12;
     const [noOfPages, setNoOfPages] = useState(Math.ceil(wishlist.length / itemsPerPage))
@@ -45,7 +45,7 @@ function WishList() {
                     <div className='cardWrap'>
                         {wishlist.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(games => {
                             return (
-                                <div key={games.id} className={`${tablet ? "gameCard" : "tabletCard"}`} >
+                                <div key={games.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
                                             <CardContent>

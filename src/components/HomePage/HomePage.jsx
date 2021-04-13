@@ -17,6 +17,7 @@ function HomePage() {
     }, [search]);
 
     const tablet = useMediaQuery("(min-width: 1200px)")
+    const phone = useMediaQuery("(min-width: 650px)")
 
     const tradeable = store.games.filter(games => games.tradeable === true && games.wish_list === false)
     useEffect(() => {
@@ -43,7 +44,7 @@ function HomePage() {
                     <div className='cardWrap'>
                         {tradeable.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(game => {
                             return (
-                                <div key={game.id} className={`${tablet ? "gameCard" : "tabletCard"}`} >
+                                <div key={game.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
                                     <Paper className={classes.paper} elevation={20}>
                                         <Card className={classes.root}>
                                             <CardContent>

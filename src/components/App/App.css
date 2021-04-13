@@ -152,6 +152,9 @@ input {
 .tabletCard{
   width: 50%;
 }
+.phoneCard{
+  width: 90%;
+}
 .addInput{
 width: 30%;
 padding: 60px;
