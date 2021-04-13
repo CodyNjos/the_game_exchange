@@ -1,8 +1,8 @@
 import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles({
     root: {
-        width: 275,
-        height: 375,
+        width: "100%",
+        height: "100%",
         margin: 2,
         paddingBottom: 10,
         backgroundColor: " rgb(223, 226, 230)",

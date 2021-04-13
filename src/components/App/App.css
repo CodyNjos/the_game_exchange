@@ -146,6 +146,9 @@ input {
 .searchBar{
   width: 30%;
 }
+.gameCard{
+  width: 30%;
+}
 .addInput{
 width: 30%;
 padding: 60px;

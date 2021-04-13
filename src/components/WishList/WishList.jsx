@@ -19,7 +19,7 @@ function WishList() {
 
     
     const [page, setPage] = useState(1);
-    const itemsPerPage = 6;
+    const itemsPerPage = 12;
     const [noOfPages, setNoOfPages] = useState(Math.ceil(wishlist.length / itemsPerPage))
     const handleChange = (event, value) => {
         setPage(value);
