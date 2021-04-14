@@ -1,4 +1,6 @@
 const express = require('express');
+var { graphqlHTTP } = require('express-graphql');
+var { buildSchema } = require('graphql');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
@@ -38,3 +40,21 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+var root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
