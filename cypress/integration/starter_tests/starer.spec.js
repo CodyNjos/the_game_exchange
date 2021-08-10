@@ -4,11 +4,11 @@ describe('Passing Test', () => {
     })
   })
   
-describe('Failing test', () => {
-    it('Will Fail', () => {
-        expect(true).to.equal(false)
-    })
-})
+// describe('Failing test', () => {
+//     it('Will Fail', () => {
+//         expect(true).to.equal(false)
+//     })
+// })
   
 describe('Login Test', () => {
     beforeEach(() => {
@@ -47,7 +47,7 @@ describe('Responsive Nav Test', () => {
         cy.get('.nav a').should('have.length', 1)
     })
     it('Test Responsive Nav (13in MacBook Pro)', () => { 
-        cy.viewport(2560, 1600)
+        cy.viewport('macbook-13') //built in device
         cy.get('.nav button').should('have.length', 1)
         cy.get('.nav a').should('have.length', 5)
     })
