@@ -25,7 +25,8 @@ describe('Failing test', () => {
 
 describe('My First Test', () => {
   it('Visits the Kitchen Sink', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('http://localhost:3000/#/home')
+    cy.viewport(1500, 700)
   })
 })
 
