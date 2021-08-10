@@ -9,7 +9,9 @@ const loginFunction = () => {
         cy.get('#password').should(`have.value`, `${password}`)
         cy.get('#loginButton').click()
 }
-
+const selectProfileDesktop = () => {
+    cy.get('#profileLink').click()
+}
 
 describe('Passing Test', () => {
     it('Will Pass', () => {
@@ -27,8 +29,6 @@ describe('Login Test', () => {
     beforeEach(() => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
-        
-   
     })
     it('Login Success', () => { // 
         loginFunction();
@@ -49,22 +49,41 @@ describe('Login Test', () => {
 
 })
 
-describe('Reactive Nav Test', () => {
+describe('Responsive Nav Test', () => {
     beforeEach(() => {
        
         cy.visit('http://localhost:3000/#/home')
    
     })
-    it('Test Mobile (Iphone X )', () => { 
+    it('Test Responsive Nav (Iphone X )', () => { 
         cy.viewport(375, 812)
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 1)
     })
-    it('Test Mobile (Pixel 2)', () => { 
+    it('Test Responsive Nav(Pixel 2)', () => { 
         cy.viewport(411, 731)
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 1)
+    })
+    it('Test Responsive Nav (13in MacBook Pro)', () => { 
+        cy.viewport('macbook-13') //built in device
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 5)
     })
 })
 
 describe('Add And Remove Game', () => {
-    it('Test outside function', () => {
+    beforeEach(() => {
+        cy.viewport('macbook-13')
+        cy.visit('http://localhost:3000/#/home')
         loginFunction()
+        selectProfileDesktop()
+    })
+    it('Add Game', () => {
+        cy.get('#addGameButton').click()
+        cy.get('#addGameInput').type('Frosthaven')
+        cy.get('#addDetailsInput').type('The long awaited sequel to 2017\'s Gloomhaven')
+        cy.get('#addImageInput').type('https://i.imgur.com/z9d2DR1l.jpg')
+        cy.get('#addGameButton').click()
     })
 })
