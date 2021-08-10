@@ -32,10 +32,19 @@ describe('Reactive Nav Test', () => {
         cy.visit('http://localhost:3000/#/home')
    
     })
-    it('Test Mobile (Iphone X )', () => { 
+    it('Test Responsive (Iphone X )', () => { 
         cy.viewport(375, 812)
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 1)
     })
-    it('Test Mobile (Pixel 2)', () => { 
+    it('Test Responsive (Pixel 2)', () => { 
         cy.viewport(411, 731)
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 1)
+    })
+    it('Test Responsive (13in MacBook Pro)', () => { 
+        cy.viewport(2560, 1600)
+        cy.get('.nav button').should('have.length', 1)
+        cy.get('.nav a').should('have.length', 5)
     })
 })
