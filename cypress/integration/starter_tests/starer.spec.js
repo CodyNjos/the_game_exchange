@@ -26,3 +26,16 @@ describe('Login Test', () => {
     })
 })
 
+describe('Reactive Nav Test', () => {
+    beforeEach(() => {
+       
+        cy.visit('http://localhost:3000/#/home')
+   
+    })
+    it('Test Mobile (Iphone X )', () => { 
+        cy.viewport(375, 812)
+    })
+    it('Test Mobile (Pixel 2)', () => { 
+        cy.viewport(411, 731)
+    })
+})
