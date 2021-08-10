@@ -11,24 +11,7 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('Passing Test', () => {
-  it('Does not do much!', () => {
-    expect(true).to.equal(true)
-  })
-})
 
-describe('Failing test', () => {
-  it('Does not do much!', () => {
-    expect(true).to.equal(false)
-  })
-})
-
-describe('My First Test', () => {
-  it('Visits the Kitchen Sink', () => {
-    cy.visit('http://localhost:3000/#/home')
-    cy.viewport(1500, 700)
-  })
-})
 
 // describe('example to-do app', () => {
 //   beforeEach(() => {
