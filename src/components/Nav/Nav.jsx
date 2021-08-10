@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 function Nav() {
   const user = useSelector((store) => store.user);
   const shrink = useMediaQuery("(min-width: 1200px)")
-  const [drawer, setDrawer] = useState(true);
+  const [drawer, setDrawer] = useState(false);
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
