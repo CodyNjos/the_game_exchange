@@ -43,7 +43,7 @@ function Nav() {
             {/* to={loginLinkData.path}> {loginLinkData.text} */}
         Home
         </Link>
-          <Link className="navLink" to="/profile">
+          <Link id="profileLink" className="navLink" to="/profile">
             Profile
         </Link>
 

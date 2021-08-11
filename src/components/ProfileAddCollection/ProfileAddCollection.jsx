@@ -38,19 +38,19 @@ function ProfileAddCollection() {
     return (form ?
         <>
 
-            <Button variant="contained" color="primary" onClick={toggleForm}>Add To Collection</Button>
+            <Button id="addGameButton"variant="contained" color="primary" onClick={toggleForm}>Add To Collection</Button>
         </>
         :
         <>
         
             <form onSubmit={addGame}>
-                <TextField className="addInput" value={newGame.game_name} onChange={(e) => setNewGame({ ...newGame, game_name: e.target.value })} label='Title' /><br /><br />
-                <TextField multiline rowsMax={4} className="addInput" value={newGame.details} onChange={(e) => setNewGame({ ...newGame, details: e.target.value })} label='Details' /><br /> <br />
-                <TextField className="addInput" value={newGame.img_url} onChange={(e) => setNewGame({ ...newGame, img_url: e.target.value })} type="url" label='Image Url' /><br />
+                <TextField id="addGameInput" className="addInput" value={newGame.game_name} onChange={(e) => setNewGame({ ...newGame, game_name: e.target.value })} label='Title' /><br /><br />
+                <TextField id="addDetailsInput" multiline rowsMax={4} className="addInput" value={newGame.details} onChange={(e) => setNewGame({ ...newGame, details: e.target.value })} label='Details' /><br /> <br />
+                <TextField id="addImageInput" className="addInput" value={newGame.img_url} onChange={(e) => setNewGame({ ...newGame, img_url: e.target.value })} type="url" label='Image Url' /><br />
                 <div className="buttonWrap">
                     <Button className="formButton" variant="contained" color="default" type="button" onClick={toggleForm}>Cancel</Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button className="formButton" variant="contained" color="primary" type='submit'>Submit</Button>
+                <Button id="addGameButton" className="formButton" variant="contained" color="primary" type='submit'>Submit</Button>
                 </div>
             </form>
         </>

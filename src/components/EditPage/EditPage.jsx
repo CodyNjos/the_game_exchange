@@ -49,15 +49,13 @@ function EditPage() {
 
     return (store.userGames.length === 0 ?
         <>
-            <h1>404</h1>
-            <p>Game Not Found</p>
+           
         </>
         :
         <>
             {store.userGames[0].user_id != store.user.id ?
                 <>
-                    <h1>404</h1>
-                    <p>Game Not Found</p>
+                
                 </>
                 :
                 <>
@@ -79,21 +77,21 @@ function EditPage() {
                         <div className="details">
                             {store.userGames[0].details ?
                                 <>
-                                    <p className='detailsText'>{store.userGames[0].details}</p>
+                                    <p id='detailsText' className='detailsText'>{store.userGames[0].details}</p>
                                 </>
                                 :
                                 <>
-                                    <p> You did not provied any details for this game.</p>
+                                    <p> You did not provided any details for this game.</p>
                                 </>}
                         </div>
                     </div>
                     <h4>Set New Details</h4>
-                    <TextField variant="outlined" className='addInput' value={details} multiline onChange={(e) => setDetails(e.target.value)}></TextField><br /><br />
-                    <Button variant="contained" color="primary" onClick={editDetails}>Save New Details</Button>
+                    <TextField id="updateDetailsInput" variant="outlined" className='addInput' value={details} multiline onChange={(e) => setDetails(e.target.value)}></TextField><br /><br />
+                    <Button id='updateDetailsButton' variant="contained" color="primary" onClick={editDetails}>Save New Details</Button>
 
 
                     <br /><br />
-                    <Button variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
+                    <Button id="removeButton" variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
                 </>}
             <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" >
                 <DialogTitle id="alert-dialog-title">{`Remove ${store.userGames[0].game_name}`}</DialogTitle>
@@ -106,7 +104,7 @@ function EditPage() {
                     <Button onClick={handleClose} variant="contained" color="default">
                         Cancel
                      </Button>
-                    <Button onClick={deleteGame} variant="contained" color="primary" autoFocus>
+                    <Button id="confirmRemove" onClick={deleteGame} variant="contained" color="primary" autoFocus>
                         Remove
                     </Button>
                 </DialogActions>

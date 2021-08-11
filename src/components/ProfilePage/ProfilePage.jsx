@@ -57,7 +57,7 @@ function ProfilePage() {
             <h2>Wish List</h2>
 
             <ProfileAddWishlist />
-            <div className='cardWrap'>
+            <div id='wishlistWrap' className='cardWrap'>
                 {usersWish.map(wish => {
                     return (
 
@@ -67,7 +67,7 @@ function ProfilePage() {
                                     <CardContent>
                                         <p><strong>{wish.game_name}</strong></p><br />
                                         <img src={wish.img_url} /><br />
-                                        <Button className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
+                                        <Button id='removeWishlistButton' className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
                                     </CardContent>
                                 </Card>
                             </Paper>
@@ -78,9 +78,9 @@ function ProfilePage() {
                 })}
             </div>
             <br />
-            <h2>Collecton</h2>
+            <h2>Collection</h2>
             <ProfileAddCollection />
-            <div className='cardWrap'>
+            <div id="collectionWrap" className='cardWrap'>
                 {usersCollection.map(game => {
                     return (
                         <div key={game.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
@@ -89,7 +89,7 @@ function ProfilePage() {
                                     <CardContent>
                                         <p><strong>{game.game_name}</strong></p><br />
                                         <img src={game.img_url} /><br />
-                                        <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
+                                        <Button id="editGameButton" className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
                                     </CardContent>
                                 </Card>
                             </Paper>
