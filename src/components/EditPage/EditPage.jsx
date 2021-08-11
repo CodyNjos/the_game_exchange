@@ -49,15 +49,13 @@ function EditPage() {
 
     return (store.userGames.length === 0 ?
         <>
-            <h1>404</h1>
-            <p>Game Not Found</p>
+           
         </>
         :
         <>
             {store.userGames[0].user_id != store.user.id ?
                 <>
-                    <h1>404</h1>
-                    <p>Game Not Found</p>
+                
                 </>
                 :
                 <>
@@ -79,17 +77,17 @@ function EditPage() {
                         <div className="details">
                             {store.userGames[0].details ?
                                 <>
-                                    <p className='detailsText'>{store.userGames[0].details}</p>
+                                    <p id='detailsText' className='detailsText'>{store.userGames[0].details}</p>
                                 </>
                                 :
                                 <>
-                                    <p> You did not provied any details for this game.</p>
+                                    <p> You did not provided any details for this game.</p>
                                 </>}
                         </div>
                     </div>
                     <h4>Set New Details</h4>
-                    <TextField variant="outlined" className='addInput' value={details} multiline onChange={(e) => setDetails(e.target.value)}></TextField><br /><br />
-                    <Button variant="contained" color="primary" onClick={editDetails}>Save New Details</Button>
+                    <TextField id="updateDetailsInput" variant="outlined" className='addInput' value={details} multiline onChange={(e) => setDetails(e.target.value)}></TextField><br /><br />
+                    <Button id='updateDetailsButton' variant="contained" color="primary" onClick={editDetails}>Save New Details</Button>
 
 
                     <br /><br />
