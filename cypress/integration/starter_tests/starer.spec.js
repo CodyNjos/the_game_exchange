@@ -138,18 +138,24 @@ describe('Add and Remove Game in Wishlist', () => {
     it('Remove Wishlist Game', () => {
         cy.scrollTo('bottom')
         cy.get('#removeWishlistButton').click()
-        cy.get('#wishlistWrap .gameCard').should('have.length', 0)
+        cy.get('#Wrap .gameCard').should('have.length', 0)
     })
 })
 
-// describe('Test Search and View Details', () => {
-//     beforeEach(() => {
-//         cy.viewport('macbook-13')
-//         cy.visit('http://localhost:3000/#/home')
-//         login()
-//     })
-//     //Searches Available Games for Catan
-//     it('Test Available Games Search', () => {
-//     cy.get('#availableSearch').type('catan')
-//     })
-// })
+describe('Test Search and View Details', () => {
+    beforeEach(() => {
+        cy.viewport('macbook-13')
+        cy.visit('http://localhost:3000/#/home')
+        login()
+    })
+    //Searches Available Games for Catan
+    it('Test Available Games Search', () => {
+    cy.get('#availableSearch').type('catan')
+    cy.get('.cardWrap').should('contain.text', 'Catan')
+    })
+    it('Test In Demand Games Search', () => {
+       cy.visit('http://localhost:3000/#/wishlist')
+       cy.get('#inDemandSearch').type('robinson crusoe')
+       cy.get('.cardWrap').should('contain.text', 'Robinson Crusoe')
+    })
+})

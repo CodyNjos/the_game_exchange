@@ -39,7 +39,7 @@ function WishList() {
     return (
         <>
             <h1>In Demand Games</h1>
-            <TextField className='searchBar' label='Search In Demand Games' value={search} onChange={(e) => setSearch(e.target.value)} />
+            <TextField id='inDemandSearch' className='searchBar' label='Search In Demand Games' value={search} onChange={(e) => setSearch(e.target.value)} />
             {wishlist.length > 0 ?
                 <>
                     <div className='cardWrap'>

@@ -78,7 +78,7 @@ function ProfilePage() {
                 })}
             </div>
             <br />
-            <h2>Collecton</h2>
+            <h2>Collection</h2>
             <ProfileAddCollection />
             <div id="collectionWrap" className='cardWrap'>
                 {usersCollection.map(game => {
