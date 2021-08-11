@@ -93,7 +93,7 @@ function EditPage() {
 
 
                     <br /><br />
-                    <Button variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
+                    <Button id="removeButton" variant="contained" color="default" onClick={handleClickOpen}>Remove From Collection</Button>
                 </>}
             <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" >
                 <DialogTitle id="alert-dialog-title">{`Remove ${store.userGames[0].game_name}`}</DialogTitle>
@@ -106,7 +106,7 @@ function EditPage() {
                     <Button onClick={handleClose} variant="contained" color="default">
                         Cancel
                      </Button>
-                    <Button onClick={deleteGame} variant="contained" color="primary" autoFocus>
+                    <Button id="confirmRemove" onClick={deleteGame} variant="contained" color="primary" autoFocus>
                         Remove
                     </Button>
                 </DialogActions>

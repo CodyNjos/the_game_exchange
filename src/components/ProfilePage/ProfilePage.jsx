@@ -80,7 +80,7 @@ function ProfilePage() {
             <br />
             <h2>Collecton</h2>
             <ProfileAddCollection />
-            <div className='cardWrap'>
+            <div id="collectionWrap" className='cardWrap'>
                 {usersCollection.map(game => {
                     return (
                         <div key={game.id} className={`${tablet ? "gameCard" : phone ? "tabletCard" : "phoneCard"}`} >
@@ -89,7 +89,7 @@ function ProfilePage() {
                                     <CardContent>
                                         <p><strong>{game.game_name}</strong></p><br />
                                         <img src={game.img_url} /><br />
-                                        <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
+                                        <Button id="editGameButton" className={classes.button} variant="contained" color="primary" onClick={() => history.push(`/edit/${game.id}`)}>Edit Game</Button>
                                     </CardContent>
                                 </Card>
                             </Paper>

@@ -34,6 +34,7 @@ describe('Login Test', () => {
         loginFunction();
     })
     it('Login Failure', () => { 
+        cy.wait(200)
         const login = "NotAUser"
         const password = "123" //should be accessed from Database
         cy.get('#username').should('have.value', '')
@@ -85,5 +86,15 @@ describe('Add And Remove Game', () => {
         cy.get('#addDetailsInput').type('The long awaited sequel to 2017\'s Gloomhaven')
         cy.get('#addImageInput').type('https://i.imgur.com/z9d2DR1l.jpg')
         cy.get('#addGameButton').click()
+    })
+    it('Remove Game', () => {
+        cy.get('#collectionWrap .gameCard').should('have.length', 1)
+        cy.get('#collectionWrap .gameCard').first().should('contain.text', 'Frosthaven')
+        cy.scrollTo('bottom')
+        cy.get('#collectionWrap .gameCard #editGameButton').click()
+        cy.scrollTo('bottom')
+        cy.get('#removeButton').click()
+        cy.get('#confirmRemove').click()
+        cy.get('#collectionWrap .gameCard').should('have.length', 0)
     })
 })
