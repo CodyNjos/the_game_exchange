@@ -67,7 +67,7 @@ function ProfilePage() {
                                     <CardContent>
                                         <p><strong>{wish.game_name}</strong></p><br />
                                         <img src={wish.img_url} /><br />
-                                        <Button className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
+                                        <Button id='removeWishlistButton' className={classes.button} variant="contained" color="primary" onClick={() => deleteGame(wish.id)}>Remove From Wishlist</Button>
                                     </CardContent>
                                 </Card>
                             </Paper>

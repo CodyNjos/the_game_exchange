@@ -38,17 +38,17 @@ function ProfileAddCollection() {
     return (form ?
         <>
 
-            <Button variant="contained" color="primary" onClick={toggleForm}>Add To Wishlist</Button>
+            <Button id='addWishlistButton' variant="contained" color="primary" onClick={toggleForm}>Add To Wishlist</Button>
         </>
         :
         <>
             <form onSubmit={addGame}>
-                <TextField className="addInput" value={newGame.game_name} onChange={(e) => setNewGame({ ...newGame, game_name: e.target.value })} placeholder='Title' /><br /><br />
-                <TextField className="addInput" value={newGame.img_url} onChange={(e) => setNewGame({ ...newGame, img_url: e.target.value })} type="url" placeholder='Image Url' /><br />
+                <TextField id ='addWishlistInput' className="addInput" value={newGame.game_name} onChange={(e) => setNewGame({ ...newGame, game_name: e.target.value })} placeholder='Title' /><br /><br />
+                <TextField id='addWishlistImage' className="addInput" value={newGame.img_url} onChange={(e) => setNewGame({ ...newGame, img_url: e.target.value })} type="url" placeholder='Image Url' /><br />
                 <div className="buttonWrap">
                     <Button variant="contained" color="default" type='button' onClick={toggleForm}>Cancel</Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button variant="contained" color="primary" type='submit'>Submit</Button>
+                <Button id="wishlistSubmit" variant="contained" color="primary" type='submit'>Submit</Button>
                 </div>
             </form>
 

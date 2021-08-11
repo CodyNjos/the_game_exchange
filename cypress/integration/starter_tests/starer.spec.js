@@ -1,11 +1,13 @@
 //Reusable Functions
 
+
+// // Not best practice to target by ID, all targets need updating https://docs.cypress.io/guides/references/best-practices#Selecting-Elements \\ \\
 const loginFunction = () => {
     const login = "Cypress"
         const password = "123" //should be accessed from Database
         cy.get('#username').should('have.value', '')
         cy.get('#password').should('have.value', '')
-        cy.get('#username').type(`${login}`) // Not best practice to target like this, all targets need updating https://docs.cypress.io/guides/references/best-practices#Selecting-Elements
+        cy.get('#username').type(`${login}`) 
         cy.get('#password').type(`${password}`)
         cy.get('#username').should(`have.value`, `${login}`)
         cy.get('#password').should(`have.value`, `${password}`)
@@ -69,8 +71,8 @@ describe('Responsive Nav Test', () => {
     })
 })
 
-// Adds a game, then removes that games
-describe('Add And Remove Game', () => {
+// Adds a game to the collection, Updates, then deletes that game
+describe('Add Update, And Remove Game in Collection', () => {
     beforeEach(() => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
@@ -96,7 +98,7 @@ describe('Add And Remove Game', () => {
     //Deletes newly created game
     it('Remove Game', () => {
         cy.get('#collectionWrap .gameCard').should('have.length', 1)
-        cy.get('#collectionWrap .gameCard').first().should('contain.text', 'Frosthaven')
+        cy.get('#collectionWrap .gameCard').first().should('contain.text', 'Frosthaven') //contain.text is looser than have.text
         cy.scrollTo('bottom')
         cy.get('#collectionWrap .gameCard #editGameButton').click()
         cy.scrollTo('bottom')
@@ -105,6 +107,34 @@ describe('Add And Remove Game', () => {
         //Not particularly useful, just testing if statements in Cypress
         if( cy.get('#collectionWrap .gameCard').should('have.length', 0)){
             cy.visit('http://localhost:3000/#/wishlist')
+        }else{
+            cy.visit('http://localhost:3000/#/homepage')
         }
     })
 })
+
+//Adds a game to the wishlist, then deletes that game
+describe('Add and Remove Game in Wishlist', () => {
+    beforeEach(() => {
+        cy.viewport('macbook-13')
+        cy.visit('http://localhost:3000/#/home')
+        loginFunction()
+        selectProfileDesktop()
+    })
+    //Adds a game to the wishlist
+    it('Add Wishlist Game', () => {
+        cy.get('#addWishlistButton').click()
+        cy.get('#addWishlistInput').type('Frosthaven')
+        cy.get('#addWishlistImage').type('https://i.imgur.com/z9d2DR1l.jpg')
+        cy.get('#wishlistSubmit').click()
+    })
+   
+    //Deletes newly created game
+    it('Remove Wishlist Game', () => {
+        cy.scrollTo('bottom')
+        cy.get('#removeWishlistButton').click()
+    })
+})
+
+
+//Mobile Tests
