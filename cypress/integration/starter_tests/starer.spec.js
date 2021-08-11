@@ -2,16 +2,22 @@
 
 
 // // Not best practice to target by ID, all targets need updating https://docs.cypress.io/guides/references/best-practices#Selecting-Elements \\ \\
-const loginFunction = () => {
+const login = () => {
     const login = "Cypress"
-        const password = "123" //should be accessed from Database
-        cy.get('#username').should('have.value', '')
-        cy.get('#password').should('have.value', '')
-        cy.get('#username').type(`${login}`) 
-        cy.get('#password').type(`${password}`)
-        cy.get('#username').should(`have.value`, `${login}`)
-        cy.get('#password').should(`have.value`, `${password}`)
-        cy.get('#loginButton').click()
+    const password = "123" //should be accessed from Database
+    cy.get('#username').should('have.value', '')
+    cy.get('#password').should('have.value', '')
+    cy.get('#username').type(`${login}`) 
+    cy.get('#password').type(`${password}`)
+    cy.get('#username').should(`have.value`, `${login}`)
+    cy.get('#password').should(`have.value`, `${password}`)
+    cy.get('#loginButton').click()
+}
+
+const loginMobile = () => {
+    const login = "Cypress"
+    const password = "123" //should be accessed from Database
+    cy.get('#username').type(`${login}`) 
 }
 
 const selectProfileDesktop = () => {
@@ -23,13 +29,13 @@ const selectProfileDesktop = () => {
 
 //Test login System.
 //*Currently uses hardcoded data*
-describe('Login Test', () => {
+describe('Desktop Login Test', () => {
     beforeEach(() => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
     })
     it('Login Success', () => { // 
-        loginFunction();
+        login();
     })
     //Makes sure alert appears if login fails
     it('Login Failure', () => { 
@@ -76,7 +82,7 @@ describe('Add Update, And Remove Game in Collection', () => {
     beforeEach(() => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
-        loginFunction()
+        login()
         selectProfileDesktop()
     })
     //Adds a game to the collection
@@ -118,7 +124,7 @@ describe('Add and Remove Game in Wishlist', () => {
     beforeEach(() => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
-        loginFunction()
+        login()
         selectProfileDesktop()
     })
     //Adds a game to the wishlist
@@ -128,13 +134,11 @@ describe('Add and Remove Game in Wishlist', () => {
         cy.get('#addWishlistImage').type('https://i.imgur.com/z9d2DR1l.jpg')
         cy.get('#wishlistSubmit').click()
     })
-   
     //Deletes newly created game
     it('Remove Wishlist Game', () => {
         cy.scrollTo('bottom')
         cy.get('#removeWishlistButton').click()
     })
+
 })
 
-
-//Mobile Tests

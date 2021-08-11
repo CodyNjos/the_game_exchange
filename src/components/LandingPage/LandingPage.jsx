@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
-
+import { useMediaQuery } from '@material-ui/core'
 // CUSTOM COMPONENTS
 //import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm'
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  
+  const shrink = useMediaQuery("(min-width: 1200px)")
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -19,7 +20,7 @@ function LandingPage() {
 
 
       <div className="grid">
-        <div className="grid-col grid-col_8">
+        <div className= {shrink?"grid-col grid-col_8" : "mobileWelcomeText"}>
           <h2>Welcome To The Game Exchange!</h2>
           {/* ¡!¡! THIS STILL NEEDS A TON OF WORK ¡!¡!*/}
           <p>
@@ -43,7 +44,7 @@ function LandingPage() {
            
           </p>
         </div>
-        <div className="grid-col grid-col_4">
+        <div className={ shrink ? "grid-col grid-col_4" : "mobileLoginForm"}>
           {/* <RegisterForm /> */}
           <LoginForm />
           <center>

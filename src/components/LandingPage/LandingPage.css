@@ -78,3 +78,15 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+.mobileLoginForm{
+  width: 90%;
+  margin: auto;
+}
+
+.mobileWelcomeText{
+
+  margin:auto;
+  margin-bottom: 3em;
+  width: 90%;
+}
