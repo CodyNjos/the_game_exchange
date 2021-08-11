@@ -34,6 +34,7 @@ describe('Desktop Login Test', () => {
         cy.viewport('macbook-13')
         cy.visit('http://localhost:3000/#/home')
     })
+  
     it('Login Success', () => { // 
         login();
     })
@@ -49,13 +50,16 @@ describe('Desktop Login Test', () => {
         cy.get('#username').should(`have.value`, `${login}`)
         cy.get('#password').should(`have.value`, `${password}`)
         cy.get('.alert').should('not.exist')
+
         cy.get('#loginButton').click()
         cy.get('.alert').should('exist')
     })
 
 })
 
+
 // Makes sure responsive nav bar is working
+
 describe('Responsive Nav Test', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/#/home')
@@ -74,6 +78,7 @@ describe('Responsive Nav Test', () => {
         cy.viewport('macbook-13') //built in device
         cy.get('.nav button').should('have.length', 1)
         cy.get('.nav a').should('have.length', 5)
+
     })
 })
 
@@ -100,6 +105,7 @@ describe('Add Update, And Remove Game in Collection', () => {
         cy.get('#updateDetailsButton').click()
         cy.get('#detailsText').should('contain.text', 'Updated details for Frosthaven')
         
+
     })
     //Deletes newly created game
     it('Remove Game', () => {
