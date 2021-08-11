@@ -57,7 +57,7 @@ function ProfilePage() {
             <h2>Wish List</h2>
 
             <ProfileAddWishlist />
-            <div className='cardWrap'>
+            <div id='wishlistWrap' className='cardWrap'>
                 {usersWish.map(wish => {
                     return (
 

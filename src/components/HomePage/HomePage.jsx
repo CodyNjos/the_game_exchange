@@ -38,7 +38,7 @@ function HomePage() {
     return (
         <>
             <h1>Available Games</h1>
-            <TextField className='searchBar' label='Search Games' value={search} onChange={(e) => setSearch(e.target.value)} />
+            <TextField id='availableSearch' className='searchBar' label='Search Games' value={search} onChange={(e) => setSearch(e.target.value)} />
             {tradeable.length > 0 ?
                 <>
                     <div className='cardWrap'>
